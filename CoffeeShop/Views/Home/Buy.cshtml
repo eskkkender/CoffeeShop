@@ -1,0 +1,28 @@
+﻿@using CoffeeShop.Models
+@model Purchase
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div>
+        <h3>Форма оформления покупки</h3>
+        @using (Html.BeginForm("Buy", "Home", FormMethod.Post))
+        {
+            @Html.HiddenFor(m=>m.BookId)
+            <table>
+                <tr>
+                    <td><p>@Html.Label("Person", "Введите имя") </p></td>
+                    <td>@Html.EditorFor(m=>m.Person) </td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Adress", "Введите адрес")</td>
+                    <td>
+                        @Html.EditorFor(m =>m.Address)
+                    </td>
+                </tr>
+                <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+            </table>
+        }
+
+    </div>

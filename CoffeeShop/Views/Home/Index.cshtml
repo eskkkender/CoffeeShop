@@ -1,0 +1,53 @@
+﻿@using CoffeeShop.Models;
+@model IEnumerable<Coffee>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.IsInRole("admin"))
+    {
+        <a href="/Home/Create">Создать </a>
+    }
+
+}
+
+
+<div>
+    <h3>Каталог товаров</h3>
+    <table>
+        <tr class="header">
+            <td><p>Наименование</p></td>
+            <td><p>Цена</p></td>
+            <td><p>Описание</p></td>
+            <td></td>
+        </tr>
+        @foreach (Coffee b in Model)
+        {
+            <tr>
+                <td><p>@b.Name</p></td>
+                <td><p>@b.Price</p></td>
+                <td><p>@b.Description</p></td>
+                <td>
+                    <p><a href="/Home/Detail/@b.Id">Подробнее</a></p>
+                    <p><a href="/Home/Buy/@b.Id">Купить</a></p>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("admin"))
+                        {
+                            <p><a href="/Home/Edit/@b.Id">Редактировать</a></p>
+                            <p><a href="/Home/Delete/@b.Id">Удалить</a></p>
+                        }
+                    }
+
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
