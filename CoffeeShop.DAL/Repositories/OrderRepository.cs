@@ -19,34 +19,37 @@ namespace CoffeeShop.DAL.Repositories
 
         public IEnumerable<Order> GetAll()
         {
-            return Db.Order.Include(o => o.Coffee);
+            return Db.Order;
         }
 
-        public void Create(Order item)
+        public void Create(Order order)
         {
-            throw new NotImplementedException();
+            Db.Order.Add( order );
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Order order = Db.Order.Find(id);
+            if (order != null)
+                Db.Order.Remove(order);
+        }
+
+        public void Update(Order order)
+        {
+            Db.Entry(order).State = System.Data.Entity.EntityState.Modified;
         }
 
         public IEnumerable<Order> Find(Func<Order, bool> predicate)
         {
-            throw new NotImplementedException();
+            return Db.Order.Where(predicate).ToList();
         }
 
         public Order Get(int id)
         {
-            throw new NotImplementedException();
+            return Db.Order.Find(id);
         }
 
- 
 
-        public void Update(Order item)
-        {
-            throw new NotImplementedException();
-        }
+  
     }
 }

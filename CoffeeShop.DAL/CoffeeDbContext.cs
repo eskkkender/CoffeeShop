@@ -19,6 +19,10 @@ namespace CoffeeShop.DAL.EF
             Database.SetInitializer<CoffeeDbContext>(new StoreDbInitializer());
         }
 
+        public CoffeeDbContext(string connectionString): base(connectionString)
+        {
+        }
+
         public class StoreDbInitializer : DropCreateDatabaseIfModelChanges<CoffeeDbContext>
         {
             protected override void Seed(CoffeeDbContext db)

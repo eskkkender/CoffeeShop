@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeShop", "CoffeeShop\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeShop.DAL", "CoffeeShop.DAL\CoffeeShop.DAL.csproj", "{98184915-A5CA-45EC-A712-913AED2308F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeShop.BLL", "CoffeeShop.BLL\CoffeeShop.BLL.csproj", "{6A2915A0-1611-43A4-9949-394164AC5BE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{98184915-A5CA-45EC-A712-913AED2308F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98184915-A5CA-45EC-A712-913AED2308F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98184915-A5CA-45EC-A712-913AED2308F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A2915A0-1611-43A4-9949-394164AC5BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A2915A0-1611-43A4-9949-394164AC5BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A2915A0-1611-43A4-9949-394164AC5BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A2915A0-1611-43A4-9949-394164AC5BE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

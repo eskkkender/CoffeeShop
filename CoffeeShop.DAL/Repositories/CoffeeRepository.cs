@@ -33,7 +33,6 @@ namespace CoffeeShop.DAL.Repositories
         }
 
      
-
         public void Create(Coffee coffee)
         {
             Db.Coffee.Add(coffee);
