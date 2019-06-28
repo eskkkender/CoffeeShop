@@ -4,22 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeeShop.DAL.Entities
+namespace CoffeeShop.BLL.DTO
 {
-    public class Order
+    public class OrderDTO
     {
         public int Id { get; set; }
 
-        public decimal Sum { get; set; }
-
-        public string Phone { get; set; }
+        public string PhoneNumber { get; set; }
 
         public string Adress { get; set; }
 
         public int CoffeeId { get; set; }
 
-        public Coffee Coffee { get; set;}
+        public DateTime? Date { get; set; }
 
-        public DateTime Date { get; set; }
     }
 }
