@@ -22,7 +22,7 @@ namespace CoffeeShop.BLL.Interfaces
         /// <summary>
         /// оформление заказа
         /// </summary>
-        IEnumerable<CoffeeDTO> GetCoffee();
+        IEnumerable<CoffeeDTO> GetCoffees();
 
         void Dispose();
     }

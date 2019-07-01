@@ -35,6 +35,9 @@
     <Reference Include="AutoMapper, Version=8.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.8.1.1\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,9 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessModels\Discount.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="DTO\CoffeeDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
+    <Compile Include="Infrastructure\ServiceModule.cs" />
     <Compile Include="Infrastructure\ValidationException.cs" />
     <Compile Include="Interfaces\IOrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

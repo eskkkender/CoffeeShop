@@ -50,7 +50,9 @@
     <Reference Include="Microsoft.Analytics.Types" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookDbContext.cs" />
     <Compile Include="CoffeeDbContext.cs" />
+    <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\Coffee.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Interfaces\IRepository.cs" />

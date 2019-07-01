@@ -10,7 +10,7 @@ using CoffeeShop.DAL.Repositories;
 
 namespace CoffeeShop.DAL.Repositories
 {
-    public class EFUnitOfWork
+    public class EFUnitOfWork :IUnitOfWork
     {
         private CoffeeDbContext Db;
         private CoffeeRepository CoffeeRepository;
@@ -66,4 +66,4 @@ namespace CoffeeShop.DAL.Repositories
         }
     }
 }
-}
+

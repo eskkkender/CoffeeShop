@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CoffeeShop.BLL.DTO;
 using CoffeeShop.DAL.Entities;
 using CoffeeShop.BLL.BusinessModels;
@@ -10,6 +6,7 @@ using CoffeeShop.DAL.Interfaces;
 using CoffeeShop.BLL.Infrastructure;
 using CoffeeShop.BLL.Interfaces;
 using CoffeeShop.DAL;
+using System.Collections.Generic;
 using AutoMapper;
 
 namespace CoffeeShop.BLL.Services
@@ -30,7 +27,7 @@ namespace CoffeeShop.BLL.Services
 
             // валидация
             if (coffee == null)
-                throw new ValidationException("Телефон не найден", "");
+                throw new ValidationException("Товар не найден", "");
             // применяем скидку
             decimal sum = new Discount(0.1m).GetDiscountedPrice(coffee.Price);
             Order order = new Order
@@ -45,24 +42,28 @@ namespace CoffeeShop.BLL.Services
             Database.Save();
         }
 
+        public IEnumerable<CoffeeDTO> GetCoffees()
+        {
+            // применяем автомаппер для проекции одной коллекции на другую
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Coffee, CoffeeDTO>()).CreateMapper();                   
+            return mapper.Map<IEnumerable<Coffee>, List<CoffeeDTO>>(Database.Coffee.GetAll());
+        }
 
         public CoffeeDTO GetCoffee(int? id)
         {
-            // применяем автомаппер для проекции одной коллекции на другую
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Coffee, CoffeeDTO>()).CreateMapper();
-            return mapper.Map<IEnumerable<Coffee>, List<CofffeDTO>>(Database.Coffee.GetAll());
+            if (id == null)
+                throw new ValidationException("Не установлено id телефона", "");
+            var coffee = Database.Coffee.Get(id.Value);
+            if (coffee == null)
+                throw new ValidationException("Телефон не найден", "");
+
+            return new CoffeeDTO {  Id = coffee.CoffeeId, Name = coffee.Name, Price = coffee.Price };
         }
-
-        public IEnumerable<CoffeeDTO> GetCoffee()
-        {
-            throw new NotImplementedException();
-        }
-
-
 
         public void Dispose()
         {
             Database.Dispose();
         }
+
     }
 }

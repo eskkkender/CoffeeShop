@@ -1,7 +1,4 @@
 ﻿using CoffeeShop.DAL.Entities;
-using Microsoft.Analytics.Interfaces;
-using Microsoft.Analytics.Interfaces.Streaming;
-using Microsoft.Analytics.Types.Sql;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +7,7 @@ using System.Text;
 
 namespace CoffeeShop.DAL
 {
+    // Класс модели данных Кофе
     public class Coffee
     {
         /// <summary>

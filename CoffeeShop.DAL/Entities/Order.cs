@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeShop.DAL.Entities
 {
+    // Класс модели покупки
     public class Order
     {
         public int Id { get; set; }
