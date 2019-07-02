@@ -1,3 +1,7 @@
 .vs/
 CoffeeShop.BLL/obj/
 CoffeeShop.DAL/obj/
+ConsoleApp/obj/
+CoffeeShop.BLL/bin/
+CoffeeShop.DAL/bin/
+ConsoleApp/bin/
