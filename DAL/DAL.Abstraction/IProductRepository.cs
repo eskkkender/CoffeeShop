@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Abstraction
 {
-    interface IProcuctRepository
+    interface IProductRepository
     {
     }
 }
