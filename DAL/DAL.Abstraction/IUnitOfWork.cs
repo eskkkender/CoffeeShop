@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL.Entities;
+using System;
 
 namespace DAL.Abstraction
 {
-    class IUnitOfWork
+    /// <summary>
+    /// Описание методов для UnitOfWork
+    /// </summary>
+    interface IUnitOfWork : IDisposable
     {
+        IRepositoryBase<Product> Product { get; }
+        /// <summary>
+        /// Сохранить изменения
+        /// </summary>
+        void Save();
     }
 }

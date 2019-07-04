@@ -8,5 +8,6 @@ namespace DAL.EntityFramework
 {
     class RepositoryBase
     {
+
     }
 }
