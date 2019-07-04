@@ -1,4 +1,5 @@
-﻿using Microsoft.Analytics.Interfaces;
+﻿using DAL.Entities.Base;
+using Microsoft.Analytics.Interfaces;
 using Microsoft.Analytics.Interfaces.Streaming;
 using Microsoft.Analytics.Types.Sql;
 using System;
@@ -9,7 +10,7 @@ using System.Text;
 
 namespace DAL.Entities
 {
-    public class Product
+    public class Product: BaseEntity
     {
         /// <summary>
         /// Наименовние кофе

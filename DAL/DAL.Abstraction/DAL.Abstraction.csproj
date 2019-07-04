@@ -43,10 +43,20 @@
     <Reference Include="Microsoft.Analytics.Types" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IProcuctRepository.cs" />
+    <Compile Include="IProductRepository.cs" />
     <Compile Include="IRepositoryBase.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL.Entities\DAL.Entities.csproj">
+      <Project>{a971962f-7fed-4aba-9a36-8a6f6bc180a5}</Project>
+      <Name>DAL.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.EntityFramework\DAL.EntityFramework.csproj">
+      <Project>{95388188-5cf8-4427-b391-508034570ed6}</Project>
+      <Name>DAL.EntityFramework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
