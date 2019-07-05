@@ -1,13 +1,13 @@
 ﻿using DAL.Entities.Base;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Abstraction
 {
-  
+
+    /// <summary>
+    /// Описания общих методов для всех репозиториев
+    /// </summary>
     public interface IRepositoryBase<T> where T : BaseEntity
     {
         IEnumerable<T> GetAll();
