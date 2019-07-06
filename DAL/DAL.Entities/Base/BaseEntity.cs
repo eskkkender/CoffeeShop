@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Entities.Base
 {
-    public class BaseEntity
+    public interface BaseEntity<TKey>
     {
-        public long Id { get; set; }
+       TKey Id { get; set; }
     }
 }

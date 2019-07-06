@@ -1,4 +1,5 @@
 ﻿using DAL.Abstraction;
+using DAL.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +9,18 @@ using System.Data.Entity;
 
 namespace DAL.EntityFramework
 {
-    class RepositoryBase<T> : IRepositoryBase<T> where T :class 
+    public abstract class RepositoryBase<TEntity, PrimaryKey> : IRepositoryBase<TEntity, PrimaryKey> where TEntity : class, BaseEntity<PrimaryKey>
     {
         protected readonly DbContext Context;
+        private readonly IDbSet<TEntity> DbSet;
 
         protected RepositoryBase(DbContext context)
         {
             Context = context;
+            DbSet = Context.Set<TEntity>();
         }
 
-        public void Create(T item)
+        public void Create(TEntity item)
         {
             throw new NotImplementedException();
         }
@@ -27,22 +30,22 @@ namespace DAL.EntityFramework
             throw new NotImplementedException();
         }
 
-        public IEnumerable<T> Find(Func<T, bool> predicate)
+        public IEnumerable<TEntity> Find(Func<TEntity, bool> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public T Get(int id)
+        public TEntity Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<TEntity> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(T item)
+        public void Update(TEntity item)
         {
             throw new NotImplementedException();
         }

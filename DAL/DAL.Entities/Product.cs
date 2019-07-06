@@ -10,8 +10,9 @@ using System.Text;
 
 namespace DAL.Entities
 {
-    public class Product: BaseEntity
+    public class Product: BaseEntity<long>
     {
+        public long Id { get; set; }
         /// <summary>
         /// Наименовние кофе
         /// </summary>
@@ -20,5 +21,6 @@ namespace DAL.Entities
         /// Описание кофе
         /// </summary>
         public string Description { get; set; }
+   
     }
 }

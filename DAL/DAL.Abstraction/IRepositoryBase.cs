@@ -7,13 +7,13 @@ namespace DAL.Abstraction
     /// <summary>
     /// Описания общих методов для всех репозиториев
     /// </summary>
-    public interface IRepositoryBase<T> where T : class
+    public interface IRepositoryBase<TEntity, PrimaryKey> where TEntity : BaseEntity<PrimaryKey>
     {
-        IEnumerable<T> GetAll();
-        T Get(int id);
-        IEnumerable<T> Find(Func<T, Boolean> predicate);
-        void Create(T item);
-        void Update(T item);
+        IEnumerable<TEntity> GetAll();
+        TEntity Get(int id);
+        IEnumerable<TEntity> Find(Func<TEntity, Boolean> predicate);
+        void Create(TEntity item);
+        void Update(TEntity item);
         void Delete(int id);
     }
 }

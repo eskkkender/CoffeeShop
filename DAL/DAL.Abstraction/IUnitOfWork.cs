@@ -8,7 +8,6 @@ namespace DAL.Abstraction
     /// </summary>
     interface IUnitOfWork : IDisposable
     {
-        IRepositoryBase<Product> Product { get; }
         /// <summary>
         /// Сохранить изменения
         /// </summary>

@@ -64,6 +64,10 @@
       <Project>{2d95a37f-5036-429e-a003-8d805bb49220}</Project>
       <Name>DAL.Abstraction</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL.Entities\DAL.Entities.csproj">
+      <Project>{A971962F-7FED-4ABA-9A36-8A6F6BC180A5}</Project>
+      <Name>DAL.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
