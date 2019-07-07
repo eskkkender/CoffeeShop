@@ -4,10 +4,13 @@ using System.Collections.Generic;
 
 namespace DAL.Abstraction
 {
+    public interface IRepositoryBase
+    {
+    }
     /// <summary>
     /// Описания общих методов для всех репозиториев
     /// </summary>
-    public interface IRepositoryBase<TEntity, PrimaryKey> where TEntity : BaseEntity<PrimaryKey>
+    public interface IRepositoryBase<TEntity, PrimaryKey>: IRepositoryBase where TEntity : BaseEntity<PrimaryKey>
     {
         IEnumerable<TEntity> GetAll();
         TEntity Get(int id);
