@@ -1,6 +1,7 @@
 ﻿using DAL.Entities.Base;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.Abstraction
 {
@@ -12,11 +13,11 @@ namespace DAL.Abstraction
     /// </summary>
     public interface IRepositoryBase<TEntity, PrimaryKey>: IRepositoryBase where TEntity : BaseEntity<PrimaryKey>
     {
-        IEnumerable<TEntity> GetAll();
-        TEntity Get(int id);
-        IEnumerable<TEntity> Find(Func<TEntity, Boolean> predicate);
+        IQueryable<TEntity> GetAll();
+        TEntity Get(TEntity item);
+        IQueryable<TEntity> Find(Func<TEntity, Boolean> predicate);
         void Create(TEntity item);
         void Update(TEntity item);
-        void Delete(int id);
+        void Delete(TEntity item);
     }
 }

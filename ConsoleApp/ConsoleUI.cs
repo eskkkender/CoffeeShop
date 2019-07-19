@@ -10,37 +10,27 @@ using AutoMapper;
 using CoffeeShop.DAL;
 using CoffeeShop.DAL.Entities;
 using System.Data.Entity;
+using DAL.EntityFramework;
 
 namespace ConsoleApp
 {
     public class ConsoleUI
     {
+    
+        CoffeeShopDbContext db = new CoffeeShopDbContext();
+        private UnitOfWork uw = new UnitOfWork();
 
-        BookDbContext db = new BookDbContext();
         public void Start ()
         {
-            IEnumerable<Book> books = db.Books;
-            Console.WriteLine(books);
+            var a = uw.productRepository.GetAll();
+            Console.WriteLine(a.ToList());
+            //foreach (var a in db.Products)
+            //{
+            //    Console.WriteLine(a.Name);
+            //}
+            //Console.WriteLine(db.Products);
+            Console.ReadKey();
         }
         
-        //IOrderService orderService;
-        //public ConsoleUI(IOrderService serv)
-        //{
-        //    orderService = serv;
-        //}
-        //public void Start()
-        //{
-        //    Console.WriteLine("Список всех объявлений:");
-
-
-
-        //    IEnumerable<CoffeeDTO> phoneDtos = orderService.GetCoffees();
-        //    var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CoffeeDTO, CoffeeViewModel>()).CreateMapper();
-        //    var phones = mapper.Map<IEnumerable<CoffeeDTO>, List<CoffeeViewModel>>(phoneDtos);
-
-
-        //    Console.WriteLine(phones);
-        //    Console.ReadKey();
-        //}
     }
 }

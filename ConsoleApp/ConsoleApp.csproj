@@ -71,9 +71,13 @@
       <Project>{98184915-a5ca-45ec-a712-913aed2308f7}</Project>
       <Name>CoffeeShop.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CoffeeShop\CoffeeShop.csproj">
-      <Project>{0fc1917d-6fe6-4f71-beae-fe9ee9e1952a}</Project>
-      <Name>CoffeeShop</Name>
+    <ProjectReference Include="..\DAL\DAL.Entities\DAL.Entities.csproj">
+      <Project>{a971962f-7fed-4aba-9a36-8a6f6bc180a5}</Project>
+      <Name>DAL.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.EntityFramework\DAL.EntityFramework.csproj">
+      <Project>{95388188-5CF8-4427-B391-508034570ED6}</Project>
+      <Name>DAL.EntityFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

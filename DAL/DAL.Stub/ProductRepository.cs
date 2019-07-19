@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL.Entities;
+using DAL.Abstraction;
 
 namespace DAL.Stub
 {
-    class ProductRepository
+    public class ProductRepository : RepositoryBase<Product, long>, IProductRepository
     {
     }
 }

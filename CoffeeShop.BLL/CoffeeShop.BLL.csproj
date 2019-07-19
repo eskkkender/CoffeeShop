@@ -52,6 +52,7 @@
     <Compile Include="BusinessModels\Discount.cs" />
     <Compile Include="DTO\CoffeeDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
+    <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="Infrastructure\ServiceModule.cs" />
     <Compile Include="Infrastructure\ValidationException.cs" />
     <Compile Include="Interfaces\IOrderService.cs" />

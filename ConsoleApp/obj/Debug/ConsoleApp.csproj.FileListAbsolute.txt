@@ -22,3 +22,10 @@ D:\NET\CoffeeShop\ConsoleApp\bin\Debug\ru\EntityFramework.SqlServer.resources.dl
 D:\NET\CoffeeShop\ConsoleApp\obj\Debug\ConsoleApp.csproj.CopyComplete
 D:\NET\CoffeeShop\ConsoleApp\obj\Debug\ConsoleApp.exe
 D:\NET\CoffeeShop\ConsoleApp\obj\Debug\ConsoleApp.pdb
+D:\NET\CoffeeShop\ConsoleApp\bin\Debug\DAL.Entities.dll
+D:\NET\CoffeeShop\ConsoleApp\bin\Debug\DAL.EntityFramework.dll
+D:\NET\CoffeeShop\ConsoleApp\bin\Debug\DAL.Abstraction.dll
+D:\NET\CoffeeShop\ConsoleApp\bin\Debug\DAL.Entities.pdb
+D:\NET\CoffeeShop\ConsoleApp\bin\Debug\DAL.EntityFramework.pdb
+D:\NET\CoffeeShop\ConsoleApp\bin\Debug\DAL.EntityFramework.dll.config
+D:\NET\CoffeeShop\ConsoleApp\bin\Debug\DAL.Abstraction.pdb

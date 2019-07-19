@@ -48,6 +48,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL.Abstraction\DAL.Abstraction.csproj">
+      <Project>{2d95a37f-5036-429e-a003-8d805bb49220}</Project>
+      <Name>DAL.Abstraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.Entities\DAL.Entities.csproj">
+      <Project>{a971962f-7fed-4aba-9a36-8a6f6bc180a5}</Project>
+      <Name>DAL.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

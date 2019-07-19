@@ -1,12 +1,43 @@
-﻿using System;
+﻿using DAL.Abstraction;
+using DAL.Entities;
+using DAL.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DAL.Stub.Base
+namespace DAL.Stub
 {
-    class RepositoryBase
+    public abstract class RepositoryBase<TEntity, PrimaryKey> : IRepositoryBase<TEntity, PrimaryKey> where TEntity : class, BaseEntity<PrimaryKey>
     {
+
+        public void Create(TEntity item)
+        {
+            string a = "привет";
+        }
+
+        public void Delete(TEntity item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<TEntity> Find(Func<TEntity, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public TEntity Get(TEntity item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<TEntity> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(TEntity item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,12 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL.Abstraction;
 
 namespace DAL.Stub
 {
-    class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
+        public ProductRepository pr = new ProductRepository();
+        public ProductRepository productRepository {
+
+            get {
+                if (pr == null)
+                    pr = new ProductRepository();
+                return pr;
+
+            }
+        }
+
+        public void Dispose()
+        {
+        }
+
+        public void SaveChanges()
+        {
+        }
     }
 }

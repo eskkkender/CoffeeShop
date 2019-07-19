@@ -3,6 +3,7 @@ using DAL.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 
 namespace DAL.EntityFramework
 {
@@ -19,27 +20,27 @@ namespace DAL.EntityFramework
 
         public void Create(TEntity item)
         {
-            throw new NotImplementedException();
+           DbSet.Add(item);
         }
 
-        public void Delete(int id)
+        public void Delete(TEntity item)
+        {
+            DbSet.Remove(item);
+        }
+
+        public IQueryable<TEntity> Find(Func<TEntity, bool> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TEntity> Find(Func<TEntity, bool> predicate)
+        public TEntity Get(TEntity item)
         {
             throw new NotImplementedException();
         }
 
-        public TEntity Get(int id)
+        public IQueryable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<TEntity> GetAll()
-        {
-            throw new NotImplementedException();
+            return DbSet.AsNoTracking();
         }
 
         public void Update(TEntity item)

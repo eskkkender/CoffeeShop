@@ -3,22 +3,17 @@ using System.Data.Entity;
 
 namespace DAL.EntityFramework
 {
-    class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
 
         private readonly DbContext _dbContext;
-        public IRepositoryFactory RepositoryFactory { get; }
 
-        public UnitOfWork(DbContext DbContext, IRepositoryFactory repositoryFactory)
-        {       
-            _dbContext = DbContext;
-            RepositoryFactory = repositoryFactory;
-        }
+        public ProductRepository productRepository { get; set; }
 
-        public T Repository<T>() where T : IRepositoryBase
-        {
-            return RepositoryFactory.Repository<T>();
-        }
+        //public UnitOfWork(DbContext DbContext)
+        //{       
+        //    _dbContext = DbContext;
+        //}
 
         public void Dispose()
         {
