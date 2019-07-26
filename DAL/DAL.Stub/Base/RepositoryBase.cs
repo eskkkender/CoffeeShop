@@ -25,7 +25,7 @@ namespace DAL.Stub
             throw new NotImplementedException();
         }
 
-        public TEntity Get(TEntity item)
+        public int Get(int a)
         {
             throw new NotImplementedException();
         }

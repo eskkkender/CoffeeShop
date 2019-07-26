@@ -15,6 +15,8 @@ namespace DAL.Stub
             }
         }
 
+        public IProductRepository ProductRepository { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
         public void Dispose()
         {
         }

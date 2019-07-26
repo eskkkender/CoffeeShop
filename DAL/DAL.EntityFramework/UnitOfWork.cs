@@ -8,12 +8,12 @@ namespace DAL.EntityFramework
 
         private readonly DbContext _dbContext;
 
-        public ProductRepository productRepository { get; set; }
+        public IProductRepository ProductRepository { get; set; }
 
-        //public UnitOfWork(DbContext DbContext)
-        //{       
-        //    _dbContext = DbContext;
-        //}
+        public UnitOfWork(DbContext DbContext)
+        {       
+           _dbContext = DbContext;
+        }
 
         public void Dispose()
         {

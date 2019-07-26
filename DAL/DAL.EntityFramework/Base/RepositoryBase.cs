@@ -33,7 +33,7 @@ namespace DAL.EntityFramework
             throw new NotImplementedException();
         }
 
-        public TEntity Get(TEntity item)
+        public int Get(int id)
         {
             throw new NotImplementedException();
         }
