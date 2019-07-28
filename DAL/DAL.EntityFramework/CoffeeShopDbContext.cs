@@ -17,10 +17,6 @@ namespace DAL.EntityFramework
             Database.SetInitializer<CoffeeShopDbContext>(new DbInitializer());
         }
 
-        //public CoffeeShopDbContext (string connectionString): base(connectionString)
-        //{
-        //    //Database.CreateIfNotExists();
-        //}
 
     }
     public class DbInitializer : DropCreateDatabaseAlways<CoffeeShopDbContext>

@@ -22,7 +22,7 @@ namespace BLL.Services
 
         public ProductDTO GetProductId(int id)
         {
-            var product = UnitOfWork.ProductRepository.GetAll().FirstOrDefault(a => a.Id == id);
+            var product = UnitOfWork.ProductRepository.Get(id);
             return Mapper.Map<Product, ProductDTO>(product);
         }
 

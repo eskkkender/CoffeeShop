@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BLL.Interfaces;
 using BLL.Services;
 using Castle.MicroKernel.Lifestyle;
@@ -16,21 +12,27 @@ namespace ConsoleApp
         {
             MapperConfigurator.Configure();
             Windsor.Initialize();
-
+            
             var container = Windsor.Container;
             using (Windsor.Container.BeginScope())
             {
+                Console.WriteLine($"Вводи товар бля");
+                string name = Console.ReadLine();
                 var service = container.Resolve<IProductManager>();
-                service.AddProduct(new DTO.ProductDTO { Name = "dskjdskjdskj" });
-                
+                service.AddProduct(new DTO.ProductDTO {Name = name});
+                Console.WriteLine($"Добавлен новый товар: {name}");
+
+
                 var allAdverts = service.GetAllProducts();
                 foreach (var advert in allAdverts)
                 {
+                    Console.WriteLine(advert.Id);
                     Console.WriteLine(advert.Name);
-                    Console.ReadKey();
                 }
-            
-                
+
+                var a = service.GetProductId(2);
+                Console.WriteLine($"Товар по ИД: {a}"); 
+                Console.ReadKey();
             }
         }
     }

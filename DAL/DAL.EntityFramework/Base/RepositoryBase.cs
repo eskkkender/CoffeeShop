@@ -33,9 +33,9 @@ namespace DAL.EntityFramework
             throw new NotImplementedException();
         }
 
-        public int Get(int id)
+        public TEntity Get(int id)
         {
-            throw new NotImplementedException();
+            return DbSet.Find(id);
         }
 
         public IQueryable<TEntity> GetAll()

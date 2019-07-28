@@ -14,7 +14,7 @@ namespace DAL.Abstraction
     public interface IRepositoryBase<TEntity, PrimaryKey>: IRepositoryBase where TEntity : BaseEntity<PrimaryKey>
     {
         IQueryable<TEntity> GetAll();
-        int Get(int id);
+        TEntity Get(int id);
         IQueryable<TEntity> Find(Func<TEntity, Boolean> predicate);
         void Create(TEntity item);
         void Update(TEntity item);

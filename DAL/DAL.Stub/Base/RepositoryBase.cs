@@ -12,7 +12,7 @@ namespace DAL.Stub
 
         public void Create(TEntity item)
         {
-            string a = "привет";
+            throw new NotImplementedException();
         }
 
         public void Delete(TEntity item)
@@ -25,7 +25,7 @@ namespace DAL.Stub
             throw new NotImplementedException();
         }
 
-        public int Get(int a)
+        public TEntity Get(int a)
         {
             throw new NotImplementedException();
         }
