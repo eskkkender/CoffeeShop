@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace DAL.EntityFramework
 {
-    public class ProductRepository: RepositoryBase<Product, long>, IProductRepository
+    public class ProductRepository: RepositoryBase<Product>, IProductRepository
     {
         public ProductRepository (DbContext context) : base(context)
         {

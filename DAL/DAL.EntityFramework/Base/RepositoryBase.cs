@@ -7,12 +7,12 @@ using System.Linq;
 
 namespace DAL.EntityFramework
 {
-    public abstract class RepositoryBase<TEntity, PrimaryKey> : IRepositoryBase<TEntity, PrimaryKey> where TEntity : class, BaseEntity<PrimaryKey>
+    public class RepositoryBase<TEntity>: IRepositoryBase<TEntity> where TEntity : class
     {
         protected readonly DbContext Context;
         private readonly IDbSet<TEntity> DbSet;
 
-        protected RepositoryBase(DbContext context)
+        public RepositoryBase(DbContext context)
         {
             Context = context;
             DbSet = Context.Set<TEntity>();

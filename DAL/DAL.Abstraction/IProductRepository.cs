@@ -2,7 +2,7 @@
 
 namespace DAL.Abstraction
 {
-    public interface IProductRepository : IRepositoryBase<Product, long>
+    public interface IProductRepository : IRepositoryBase<Product>
     {
     }
 }

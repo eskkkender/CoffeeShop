@@ -5,13 +5,13 @@ using System.Linq;
 
 namespace DAL.Abstraction
 {
-    public interface IRepositoryBase
-    {
-    }
+    //public interface IRepositoryBase
+    //{
+    //}
     /// <summary>
     /// Описания общих методов для всех репозиториев
     /// </summary>
-    public interface IRepositoryBase<TEntity, PrimaryKey>: IRepositoryBase where TEntity : BaseEntity<PrimaryKey>
+    public interface IRepositoryBase<TEntity> where TEntity : class
     {
         IQueryable<TEntity> GetAll();
         TEntity Get(int id);

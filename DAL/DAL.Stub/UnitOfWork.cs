@@ -21,6 +21,11 @@ namespace DAL.Stub
         {
         }
 
+        public IRepositoryBase<TEntity> Repository<TEntity>() where TEntity : class
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void SaveChanges()
         {
         }

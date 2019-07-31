@@ -30,8 +30,8 @@ namespace ConsoleApp
                     Console.WriteLine(advert.Name);
                 }
 
-                var a = service.GetProductId(2);
-                Console.WriteLine($"Товар по ИД: {a}"); 
+                var GetById = service.GetProductId(2);
+                Console.WriteLine($"Товар по ИД: {GetById.Name}"); 
                 Console.ReadKey();
             }
         }

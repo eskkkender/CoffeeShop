@@ -16,5 +16,7 @@ namespace DAL.Abstraction
         /// Сохранить изменения
         /// </summary>
         void SaveChanges();
+
+        IRepositoryBase<TEntity> Repository<TEntity>() where TEntity : class;
     }
 }

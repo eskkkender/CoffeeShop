@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace DAL.Stub
 {
-    public abstract class RepositoryBase<TEntity, PrimaryKey> : IRepositoryBase<TEntity, PrimaryKey> where TEntity : class, BaseEntity<PrimaryKey>
+    public abstract class RepositoryBase<TEntity, PrimaryKey> : IRepositoryBase<TEntity> where TEntity : class, BaseEntity<PrimaryKey>
     {
 
         public void Create(TEntity item)
