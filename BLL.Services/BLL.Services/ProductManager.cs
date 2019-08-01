@@ -33,7 +33,12 @@ namespace BLL.Services
             return Mapper.Map<IQueryable<Product>, List<ProductDTO>>(product);
         }
 
-
-    }
-  
+        public void DeleteProduct(int id)
+        {
+            var ProductId = GetProductId(id);
+            var product = Mapper.Map<ProductDTO, Product>(ProductId);
+            UnitOfWork.Repository<Product>().Delete(product);
+            UnitOfWork.SaveChanges();
+        }
+    } 
 }

@@ -12,8 +12,6 @@ namespace DAL.EntityFramework
         private readonly DbContext _dbContext;
         public Dictionary<Type, object> repositories = new Dictionary<Type, object>();
 
-        public IProductRepository ProductRepository { get; set; }
-
         public UnitOfWork(DbContext DbContext)
         {       
            _dbContext = DbContext;

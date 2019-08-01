@@ -8,11 +8,6 @@ namespace DAL.Abstraction
     public interface IUnitOfWork : IDisposable
     {
         /// <summary>
-        /// Репозиторий товара
-        /// </summary>
-        IProductRepository ProductRepository { get; set; }
-
-        /// <summary>
         /// Сохранить изменения
         /// </summary>
         void SaveChanges();

@@ -1,7 +1,5 @@
 ﻿using DAL.Abstraction;
-using DAL.Entities.Base;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
@@ -25,7 +23,15 @@ namespace DAL.EntityFramework
 
         public void Delete(TEntity item)
         {
-            DbSet.Remove(item);
+            try
+            {
+                DbSet.Remove(item);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+           
         }
 
         public IQueryable<TEntity> Find(Func<TEntity, bool> predicate)
