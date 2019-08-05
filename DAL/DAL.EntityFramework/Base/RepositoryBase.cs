@@ -5,23 +5,23 @@ using System.Linq;
 
 namespace DAL.EntityFramework
 {
-    public class RepositoryBase<TEntity>: IRepositoryBase<TEntity> where TEntity : class
+    public class RepositoryBase<T>: IRepositoryBase<T> where T : class
     {
         protected readonly DbContext Context;
-        private readonly IDbSet<TEntity> DbSet;
+        private readonly IDbSet<T> DbSet;
 
         public RepositoryBase(DbContext context)
         {
             Context = context;
-            DbSet = Context.Set<TEntity>();
+            DbSet = Context.Set<T>();
         }
 
-        public void Create(TEntity item)
+        public void Create(T item)
         {
            DbSet.Add(item);
         }
 
-        public void Delete(TEntity item)
+        public void Delete(T item)
         {
             try
             {
@@ -34,22 +34,22 @@ namespace DAL.EntityFramework
            
         }
 
-        public IQueryable<TEntity> Find(Func<TEntity, bool> predicate)
+        public IQueryable<T> Find(Func<T, bool> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public TEntity Get(int id)
+        public T Get(int id)
         {
             return DbSet.Find(id);
         }
 
-        public IQueryable<TEntity> GetAll()
+        public IQueryable<T> GetAll()
         {
             return DbSet.AsNoTracking();
         }
 
-        public void Update(TEntity item)
+        public void Update(T item)
         {
             throw new NotImplementedException();
         }

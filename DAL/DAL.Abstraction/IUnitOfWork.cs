@@ -8,7 +8,7 @@ namespace DAL.Abstraction
     /// </summary>
     public interface IUnitOfWork : IDisposable
     {
-        IFactoryRepository Repositories { get; }
+        IFactoryRepository RepositoryFactory { get; }
 
         /// <summary>
         /// Сохранить изменения

@@ -4,11 +4,11 @@ namespace BLL.Services
 {
     public class Manager
     {
-        protected IUnitOfWork UnitOfWork;
+        protected IUnitOfWork _unitOfWork;
 
         public Manager(IUnitOfWork unitOfWork)
         {
-            UnitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
         }
     }
 }

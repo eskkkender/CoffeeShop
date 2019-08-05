@@ -12,27 +12,26 @@ namespace BLL.Services
     {
 
         public ProductManager(IUnitOfWork unitOfWork) : base(unitOfWork)
-        {
-          
+        {         
         }
 
         public ProductDTO GetProductId(int id)
         {
-            var dss = UnitOfWork.Repository<IProductRepository>().GetAll;
-            var product = UnitOfWork.Repository<Product>().Get(id);
+            var dss = _unitOfWork.Repository<IProductRepository>().GetAll;
+            var product = _unitOfWork.Repository<Product>().Get(id);
             return Mapper.Map<Product, ProductDTO>(product);
         }
 
         public void AddProduct(ProductDTO product)
         {
             var products = Mapper.Map<ProductDTO, Product>(product);
-            UnitOfWork.Repository<Product>().Create(products);
-            UnitOfWork.SaveChanges();            
+            _unitOfWork.Repository<Product>().Create(products);
+            _unitOfWork.SaveChanges();            
         }
 
         public List<ProductDTO> GetAllProducts()
         {
-            var product = UnitOfWork.Repository<Product>().GetAll();
+            var product = _unitOfWork.Repository<Product>().GetAll();
             return Mapper.Map<IQueryable<Product>, List<ProductDTO>>(product);
         }
 
@@ -40,8 +39,8 @@ namespace BLL.Services
         {
             var ProductId = GetProductId(id);
             var product = Mapper.Map<ProductDTO, Product>(ProductId);
-            UnitOfWork.Repository<Product>().Delete(product);
-            UnitOfWork.SaveChanges();
+            _unitOfWork.Repository<Product>().Delete(product);
+            _unitOfWork.SaveChanges();
         }
     } 
 }

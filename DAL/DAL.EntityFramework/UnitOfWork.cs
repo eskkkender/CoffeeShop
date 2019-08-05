@@ -13,16 +13,17 @@ namespace DAL.EntityFramework
 
         //public Dictionary<Type, object> repositories = new Dictionary<Type, object>();
 
-        public IFactoryRepository Repositories { get; }
+        public IFactoryRepository RepositoryFactory { get; }
 
-        public UnitOfWork(DbContext DbContext)
-        {       
+        public UnitOfWork(DbContext DbContext, IFactoryRepository factory)
+        {
+            RepositoryFactory = factory;
            _dbContext = DbContext;
         }
 
         public T Repository<T>() where T : IRepositoryBase
         {
-            return Repositories.Repository<T>();
+            return RepositoryFactory.Repository<T>();
         }
 
         //public IRepositoryBase<TEntity> Repository<TEntity>() where TEntity : class

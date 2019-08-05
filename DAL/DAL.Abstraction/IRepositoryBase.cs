@@ -9,13 +9,13 @@ namespace DAL.Abstraction
     /// <summary>
     /// Описания общих методов для всех репозиториев
     /// </summary>
-    public interface IRepositoryBase<TEntity> where TEntity : class
+    public interface IRepositoryBase<T> where T : class
     {
-        IQueryable<TEntity> GetAll();
-        TEntity Get(int id);
-        IQueryable<TEntity> Find(Func<TEntity, Boolean> predicate);
-        void Create(TEntity item);
-        void Update(TEntity item);
-        void Delete(TEntity item);
+        IQueryable<T> GetAll();
+        T Get(int id);
+        IQueryable<T> Find(Func<T, Boolean> predicate);
+        void Create(T item);
+        void Update(T item);
+        void Delete(T item);
     }
 }
