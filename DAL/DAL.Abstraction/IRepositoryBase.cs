@@ -1,13 +1,11 @@
-﻿using DAL.Entities.Base;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 
 namespace DAL.Abstraction
 {
-    //public interface IRepositoryBase
-    //{
-    //}
+    public interface IRepositoryBase
+    {
+    }
     /// <summary>
     /// Описания общих методов для всех репозиториев
     /// </summary>

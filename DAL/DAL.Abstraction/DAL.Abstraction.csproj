@@ -43,6 +43,7 @@
     <Reference Include="Microsoft.Analytics.Types" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IFactoryRepository.cs" />
     <Compile Include="IProductRepository.cs" />
     <Compile Include="IRepositoryBase.cs" />
     <Compile Include="IUnitOfWork.cs" />

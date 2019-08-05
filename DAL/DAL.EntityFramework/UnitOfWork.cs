@@ -10,24 +10,32 @@ namespace DAL.EntityFramework
     {
 
         private readonly DbContext _dbContext;
-        public Dictionary<Type, object> repositories = new Dictionary<Type, object>();
+
+        //public Dictionary<Type, object> repositories = new Dictionary<Type, object>();
+
+        public IFactoryRepository Repositories { get; }
 
         public UnitOfWork(DbContext DbContext)
         {       
            _dbContext = DbContext;
         }
 
-        public IRepositoryBase<TEntity> Repository<TEntity>() where TEntity : class
+        public T Repository<T>() where T : IRepositoryBase
         {
-            if (repositories.Keys.Contains(typeof(TEntity)) == true)
-            {
-                return repositories[typeof(TEntity)] as IRepositoryBase<TEntity>;
-            }
-
-            IRepositoryBase<TEntity> repo = new RepositoryBase<TEntity>(_dbContext);
-            repositories.Add(typeof(TEntity), repo);
-            return repo;
+            return Repositories.Repository<T>();
         }
+
+        //public IRepositoryBase<TEntity> Repository<TEntity>() where TEntity : class
+        //{
+        //    if (repositories.Keys.Contains(typeof(TEntity)) == true)
+        //    {
+        //        return repositories[typeof(TEntity)] as IRepositoryBase<TEntity>;
+        //    }
+
+        //    IRepositoryBase<TEntity> repo = new RepositoryBase<TEntity>(_dbContext);
+        //    repositories.Add(typeof(TEntity), repo);
+        //    return repo;
+        //}
 
         public void Dispose()
         {
@@ -39,5 +47,6 @@ namespace DAL.EntityFramework
             _dbContext.SaveChanges();
         }
 
+ 
     }
 }

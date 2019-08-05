@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace DAL.Abstraction
 {
     /// <summary>
@@ -7,11 +8,15 @@ namespace DAL.Abstraction
     /// </summary>
     public interface IUnitOfWork : IDisposable
     {
+        IFactoryRepository Repositories { get; }
+
         /// <summary>
         /// Сохранить изменения
         /// </summary>
         void SaveChanges();
 
-        IRepositoryBase<TEntity> Repository<TEntity>() where TEntity : class;
+        T Repository<T>() where T : IRepositoryBase;
+
+        //IRepositoryBase<TEntity> Repository<TEntity>() where TEntity : class;
     }
 }

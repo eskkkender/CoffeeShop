@@ -17,6 +17,8 @@ namespace DAL.Stub
 
         public IProductRepository ProductRepository { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
+        public IFactoryRepository repositories => throw new System.NotImplementedException();
+
         public void Dispose()
         {
         }
@@ -28,6 +30,11 @@ namespace DAL.Stub
 
         public void SaveChanges()
         {
+        }
+
+        T IUnitOfWork.Repository<T>()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

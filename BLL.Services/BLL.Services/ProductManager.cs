@@ -10,12 +10,15 @@ namespace BLL.Services
 {
     public class ProductManager :  Manager, IProductManager
     {
+
         public ProductManager(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
+          
         }
 
         public ProductDTO GetProductId(int id)
         {
+            var dss = UnitOfWork.Repository<IProductRepository>().GetAll;
             var product = UnitOfWork.Repository<Product>().Get(id);
             return Mapper.Map<Product, ProductDTO>(product);
         }
