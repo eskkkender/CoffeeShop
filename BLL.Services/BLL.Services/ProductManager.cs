@@ -17,21 +17,20 @@ namespace BLL.Services
 
         public ProductDTO GetProductId(int id)
         {
-            var dss = _unitOfWork.Repository<IProductRepository>().GetAll;
-            var product = _unitOfWork.Repository<Product>().Get(id);
-            return Mapper.Map<Product, ProductDTO>(product);
+            var dss = _unitOfWork.Repository<IProductRepository>().Get(id);
+            return Mapper.Map<Product, ProductDTO>(dss);
         }
 
         public void AddProduct(ProductDTO product)
         {
             var products = Mapper.Map<ProductDTO, Product>(product);
-            _unitOfWork.Repository<Product>().Create(products);
+            _unitOfWork.Repository<IProductRepository>().Create(products);
             _unitOfWork.SaveChanges();            
         }
 
         public List<ProductDTO> GetAllProducts()
         {
-            var product = _unitOfWork.Repository<Product>().GetAll();
+            var product = _unitOfWork.Repository<IProductRepository>().GetAll();
             return Mapper.Map<IQueryable<Product>, List<ProductDTO>>(product);
         }
 
@@ -39,7 +38,7 @@ namespace BLL.Services
         {
             var ProductId = GetProductId(id);
             var product = Mapper.Map<ProductDTO, Product>(ProductId);
-            _unitOfWork.Repository<Product>().Delete(product);
+            _unitOfWork.Repository<IProductRepository>().Delete(product);
             _unitOfWork.SaveChanges();
         }
     } 

@@ -15,8 +15,6 @@ namespace DAL.Abstraction
         /// </summary>
         void SaveChanges();
 
-        T Repository<T>() where T : IRepositoryBase;
-
-        //IRepositoryBase<TEntity> Repository<TEntity>() where TEntity : class;
+        IRepositoryBase Repository<IRepositoryBase>();
     }
 }

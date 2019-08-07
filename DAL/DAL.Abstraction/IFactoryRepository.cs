@@ -8,8 +8,7 @@
         /// <summary>
         /// Получить репозиторий по его интерфейсу
         /// </summary>
-        /// <typeparam name="T">Интерфейс для репозитория</typeparam>
         /// <returns>Экземпляр репозитория</returns>
-        T Repository<T>() where T : IRepositoryBase;
+        IRepositoryBase Repository<IRepositoryBase>();
     }
 }

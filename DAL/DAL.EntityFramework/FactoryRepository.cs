@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DAL.Abstraction;
+﻿using DAL.Abstraction;
 using Castle.Windsor;
-
 
 namespace DAL.EntityFramework
 {
@@ -18,9 +12,9 @@ namespace DAL.EntityFramework
             _container = container;
         }
 
-        public T Repository<T>() where T : IRepositoryBase
+        public IRepositoryBase Repository<IRepositoryBase>()
         {
-            return _container.Resolve<T>();
+            return _container.Resolve<IRepositoryBase>();
         }
     }
 }

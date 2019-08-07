@@ -2,6 +2,7 @@
 using BLL.Interfaces;
 using BLL.Services;
 using Castle.MicroKernel.Lifestyle;
+using DAL.EntityFramework;
 
 namespace ConsoleApp
 {
@@ -9,18 +10,19 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            MapperConfigurator.Configure();
-            Windsor.Initialize();
-            
+            MapperConfigurator.Configure();  
             var container = Windsor.Container;
-            using (Windsor.Container.BeginScope())
+            FactoryRepository ds = new FactoryRepository(container);
+            container.Install();
+            Windsor.Initialize();
+
+            using (container.BeginScope())
             {
-                var service = container.Resolve<IProductManager>();
-                
+                 var service = ds.Repository<IProductManager>();
                 //Добавление
                 Console.WriteLine($"Вводи товар бля");
                 string name = Console.ReadLine();
-                service.AddProduct(new DTO.ProductDTO {Name = name});
+                service.AddProduct(new DTO.ProductDTO { Name = name });
                 Console.WriteLine($"Добавлен новый товар: {name}");
 
                 //Получение всех товаров
@@ -32,12 +34,11 @@ namespace ConsoleApp
                 }
 
                 //Получение по ИД
-                var GetById = service.GetProductId(6);
-                Console.WriteLine($"Товар по ИД: {GetById.Name}"); 
-           
-                //int id = Console.ReadLine();
-                //Удаление по ИД
-                service.DeleteProduct(2);
+                var GetById = service.GetProductId(1);
+                Console.WriteLine($"Товар по ИД: {GetById.Name}");
+                ////int id = Console.ReadLine();
+                ////Удаление по ИД
+                //service.DeleteProduct(2);
                 Console.ReadKey();
       
             }
