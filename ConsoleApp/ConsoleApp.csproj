@@ -70,12 +70,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL.Interfaces\BLL.Interfaces\BLL.Interfaces.csproj">
-      <Project>{171cc2f4-3ee7-4719-af43-228bb5ae7791}</Project>
+    <ProjectReference Include="..\BLL\BLL.Interfaces\BLL.Interfaces.csproj">
+      <Project>{c813903d-3798-4ebe-880f-8d8173fe92e5}</Project>
       <Name>BLL.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BLL.Services\BLL.Services\BLL.Services.csproj">
-      <Project>{f1b5ba42-2c94-46d4-a94e-374118935b01}</Project>
+    <ProjectReference Include="..\BLL\BLL.Services\BLL.Services.csproj">
+      <Project>{824fbe7c-c9ea-4023-9317-3f61fcc96c5c}</Project>
       <Name>BLL.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\BLL\DTO\DTO.csproj">

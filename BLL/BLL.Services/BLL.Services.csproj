@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectTypeGuids>{416D63FD-0477-49AA-A954-A7C5B95A9B51};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{F1B5BA42-2C94-46D4-A94E-374118935B01}</ProjectGuid>
+    <ProjectGuid>{824FBE7C-C9EA-4023-9317-3F61FCC96C5C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BLL.Services</RootNamespace>
@@ -65,24 +65,13 @@
     <Compile Include="Installers\DatabasesInstaller.cs" />
     <Compile Include="Installers\RepositoriesInstaller.cs" />
     <Compile Include="Installers\ServicesInstaller.cs" />
-    <Compile Include="Windsor.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="MapperConfigurator.cs" />
     <Compile Include="ProductManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windsor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\BLL.Interfaces\BLL.Interfaces\BLL.Interfaces.csproj">
-      <Project>{171cc2f4-3ee7-4719-af43-228bb5ae7791}</Project>
-      <Name>BLL.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\BLL\DTO\DTO.csproj">
-      <Project>{5a01a49d-45a8-4142-9436-5fe855b8515e}</Project>
-      <Name>DTO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\DAL\DAL.Abstraction\DAL.Abstraction.csproj">
       <Project>{2d95a37f-5036-429e-a003-8d805bb49220}</Project>
       <Name>DAL.Abstraction</Name>
@@ -94,6 +83,14 @@
     <ProjectReference Include="..\..\DAL\DAL.EntityFramework\DAL.EntityFramework.csproj">
       <Project>{95388188-5cf8-4427-b391-508034570ed6}</Project>
       <Name>DAL.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL.Interfaces\BLL.Interfaces.csproj">
+      <Project>{c813903d-3798-4ebe-880f-8d8173fe92e5}</Project>
+      <Name>BLL.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{5a01a49d-45a8-4142-9436-5fe855b8515e}</Project>
+      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

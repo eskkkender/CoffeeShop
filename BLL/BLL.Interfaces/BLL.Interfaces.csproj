@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectTypeGuids>{416D63FD-0477-49AA-A954-A7C5B95A9B51};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{171CC2F4-3EE7-4719-AF43-228BB5AE7791}</ProjectGuid>
+    <ProjectGuid>{C813903D-3798-4EBE-880F-8D8173FE92E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BLL.Interfaces</RootNamespace>
@@ -47,7 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BLL\DTO\DTO.csproj">
+    <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{5a01a49d-45a8-4142-9436-5fe855b8515e}</Project>
       <Name>DTO</Name>
     </ProjectReference>
