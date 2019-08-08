@@ -8,7 +8,7 @@ using AutoMapper;
 
 namespace BLL.Services
 {
-    public class ProductManager :  Manager, IProductManager
+    public class ProductManager : Manager, IProductManager
     {
 
         public ProductManager(IUnitOfWork unitOfWork) : base(unitOfWork)
@@ -36,8 +36,7 @@ namespace BLL.Services
 
         public void DeleteProduct(int id)
         {
-            var ProductId = GetProductId(id);
-            var product = Mapper.Map<ProductDTO, Product>(ProductId);
+            var product = _unitOfWork.Repository<IProductRepository>().Get(id);
             _unitOfWork.Repository<IProductRepository>().Delete(product);
             _unitOfWork.SaveChanges();
         }
