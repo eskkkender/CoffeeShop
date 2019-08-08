@@ -29,6 +29,7 @@ namespace ConsoleApp
                 var allAdverts = service.GetAllProducts();
                 foreach (var advert in allAdverts)
                 {
+                    Console.WriteLine(advert.Id);
                     Console.WriteLine(advert.Name);
                 }
 
