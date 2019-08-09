@@ -34,11 +34,16 @@ namespace ConsoleApp
                 }
 
                 //Получение по ИД
-                var GetById = service.GetProductId(1);
+                Console.WriteLine($"Получить по ИД");
+                int ID = int.Parse(Console.ReadLine());
+                var GetById = service.GetProductId(ID);
                 Console.WriteLine($"Товар по ИД: {GetById.Name}");
 
                 // Удаление по ИД
-                service.DeleteProduct(2);
+
+                Console.WriteLine($"Удалить");
+                int DeleteId = int.Parse(Console.ReadLine());
+                service.DeleteProduct(DeleteId);
                 // Получение всех товаров после удаления
                 var allAdvertss = service.GetAllProducts();
                 foreach (var advert in allAdvertss)

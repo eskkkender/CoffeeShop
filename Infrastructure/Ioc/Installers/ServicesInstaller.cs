@@ -2,6 +2,7 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using BLL.Interfaces;
+using BLL.Services;
 
 namespace BLL.Services.Installers
 {

@@ -1,5 +1,4 @@
-﻿
-using Castle.Windsor;
+﻿using Castle.Windsor;
 using BLL.Services.Installers;
 
 namespace BLL.Services

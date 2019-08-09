@@ -33,3 +33,6 @@ D:\NET\CoffeeShop\ConsoleApp\obj\Debug\ConsoleApp.csproj.CoreCompileInputs.cache
 D:\NET\CoffeeShop\ConsoleApp\obj\Debug\ConsoleApp.csproj.CopyComplete
 D:\NET\CoffeeShop\ConsoleApp\obj\Debug\ConsoleApp.exe
 D:\NET\CoffeeShop\ConsoleApp\obj\Debug\ConsoleApp.pdb
+D:\NET\CoffeeShop\ConsoleApp\bin\Debug\Ioc.dll
+D:\NET\CoffeeShop\ConsoleApp\bin\Debug\Ioc.pdb
+D:\NET\CoffeeShop\ConsoleApp\bin\Debug\Ioc.dll.config
