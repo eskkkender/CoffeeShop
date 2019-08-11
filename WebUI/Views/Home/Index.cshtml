@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@foreach (var b in ViewBag.Hell)
+{
+    <tr>
+        <td><p>@b.Name</p></td>
+    </tr>
+}
+<h2>@ViewBag.Message</h2>

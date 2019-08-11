@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ioc", "Infrastructure\Ioc\Ioc.csproj", "{A8E6394D-E76A-489A-8B06-2DB2E2E8EDC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{4AE736FD-96AC-471D-9C13-76CD84AA2AAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{A8E6394D-E76A-489A-8B06-2DB2E2E8EDC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8E6394D-E76A-489A-8B06-2DB2E2E8EDC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8E6394D-E76A-489A-8B06-2DB2E2E8EDC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE736FD-96AC-471D-9C13-76CD84AA2AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE736FD-96AC-471D-9C13-76CD84AA2AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE736FD-96AC-471D-9C13-76CD84AA2AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE736FD-96AC-471D-9C13-76CD84AA2AAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -82,12 +82,8 @@
       <Project>{5A01A49D-45A8-4142-9436-5FE855B8515E}</Project>
       <Name>DTO</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.Entities\DAL.Entities.csproj">
-      <Project>{a971962f-7fed-4aba-9a36-8a6f6bc180a5}</Project>
-      <Name>DAL.Entities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.EntityFramework\DAL.EntityFramework.csproj">
-      <Project>{95388188-5CF8-4427-B391-508034570ED6}</Project>
+      <Project>{95388188-5cf8-4427-b391-508034570ed6}</Project>
       <Name>DAL.EntityFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Ioc\Ioc.csproj">
