@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ioc", "Infrastructure\Ioc\I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{4AE736FD-96AC-471D-9C13-76CD84AA2AAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalWindsor", "Infrastructure\GlobalWindsor\GlobalWindsor.csproj", "{EDECEA07-52ED-4A43-8765-ABC4BF27AC48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{4AE736FD-96AC-471D-9C13-76CD84AA2AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AE736FD-96AC-471D-9C13-76CD84AA2AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AE736FD-96AC-471D-9C13-76CD84AA2AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDECEA07-52ED-4A43-8765-ABC4BF27AC48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDECEA07-52ED-4A43-8765-ABC4BF27AC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDECEA07-52ED-4A43-8765-ABC4BF27AC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDECEA07-52ED-4A43-8765-ABC4BF27AC48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +94,7 @@ Global
 		{C813903D-3798-4EBE-880F-8D8173FE92E5} = {ACEA1991-7919-4B0D-A5BC-C9D9CCB7E485}
 		{824FBE7C-C9EA-4023-9317-3F61FCC96C5C} = {ACEA1991-7919-4B0D-A5BC-C9D9CCB7E485}
 		{A8E6394D-E76A-489A-8B06-2DB2E2E8EDC6} = {B3844A0B-1818-4A30-A706-EB9B6402921B}
+		{EDECEA07-52ED-4A43-8765-ABC4BF27AC48} = {B3844A0B-1818-4A30-A706-EB9B6402921B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C7717C7-56ED-4722-9CF1-E9B451DB5B3E}

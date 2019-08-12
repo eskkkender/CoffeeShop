@@ -15,9 +15,9 @@ namespace WebUI
         protected void Application_Start()
         {
             MapperConfigurator.Configure();
-            //var container = Windsor.Container;
-            //container.Install();
-            //Windsor.Initialize();        
+            var container = Windsor.Container;
+            container.Install();
+            Windsor.Initialize();        
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -17,10 +17,11 @@ namespace WebUI.Controllers
         public ActionResult Index()
         {
             //MapperConfigurator.Configure();
-            var container = Windsor.Container;           
-            FactoryRepository ds = new FactoryRepository(container);
+            var container = Windsor.Container;
             container.Install();
+           
             Windsor.Initialize();
+            FactoryRepository ds = new FactoryRepository(container);
             using (container.BeginScope())
             {
                 var service = ds.Repository<IProductManager>();
