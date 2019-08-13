@@ -10,8 +10,8 @@ namespace BLL.Services.Installers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<IProductManager>().ImplementedBy<ProductManager>()
-                .LifestyleScoped());
+            container.Register(Component.For<IProductManager>().ImplementedBy<ProductManager>());
+
         }
     }
 }

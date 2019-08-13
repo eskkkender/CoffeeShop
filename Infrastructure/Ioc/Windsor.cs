@@ -11,6 +11,7 @@ namespace BLL.Services
             Container.Install(new DatabasesInstaller());
             Container.Install(new RepositoriesInstaller());
             Container.Install(new ServicesInstaller());
+            //Container.Install(new ControllersInstaller());
         }
     }
 }

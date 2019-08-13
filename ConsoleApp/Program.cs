@@ -2,24 +2,21 @@
 using BLL.Interfaces;
 using BLL.Services;
 using Castle.MicroKernel.Lifestyle;
-using DAL.EntityFramework;
 
 namespace ConsoleApp
 {
     class Program
     {
+ 
         static void Main(string[] args)
         {
             MapperConfigurator.Configure();  
             var container = Windsor.Container;
-            FactoryRepository ds = new FactoryRepository(container);
-            container.Install();
             Windsor.Initialize();
-
+           
             using (container.BeginScope())
             {
-                 var service = ds.Repository<IProductManager>();
-                // Добавление товара
+                var service = container.Resolve<IProductManager>();
                 Console.WriteLine($"Вводи товар бля");
                 string name = Console.ReadLine();
                 service.AddProduct(new DTO.ProductDTO { Name = name });
@@ -40,10 +37,10 @@ namespace ConsoleApp
                 Console.WriteLine($"Товар по ИД: {GetById.Name}");
 
                 // Удаление по ИД
-
                 Console.WriteLine($"Удалить");
                 int DeleteId = int.Parse(Console.ReadLine());
                 service.DeleteProduct(DeleteId);
+
                 // Получение всех товаров после удаления
                 var allAdvertss = service.GetAllProducts();
                 foreach (var advert in allAdvertss)

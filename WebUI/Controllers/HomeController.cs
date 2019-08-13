@@ -7,7 +7,7 @@ using BLL.Interfaces;
 using BLL.Services;
 using Castle.MicroKernel.Lifestyle;
 using DAL.EntityFramework;
-using GlobalContainer;
+using GlobalWindsor;
 using Castle.Windsor;
 
 namespace WebUI.Controllers
@@ -15,24 +15,37 @@ namespace WebUI.Controllers
     public class HomeController : Controller
     {
 
+        IProductManager ds;
+
+        public HomeController( IProductManager a)
+        {
+            ds = a;
+        }
+
         public ActionResult Index()
         {
-            var container = Windsor.Container;
-            container.Install();
-            Windsor.Initialize();
+            //var container = Windsor.Container;
+            //Windsor.Initialize();
 
-            FactoryRepository ds = new FactoryRepository(container);
+            var allAdverts = ds.GetAllProducts();
+            ViewBag.Hell = allAdverts;
+            //    var container = Windsor.Container;
+            //    container.Install();
+            //    Windsor.Initialize();
 
-            using (container.BeginScope())
-            {
-                var service = ds.Repository<IProductManager>();
-                // Получение всех товаров
-                var allAdverts = service.GetAllProducts();
-                ViewBag.Message = "Это вызов частичного представления из обычного";
-                ViewBag.Hell = allAdverts;
-                return View(allAdverts);
-            }
-               
+            //FactoryRepository ds = new FactoryRepository(container);
+
+            //using (container.BeginScope())
+            //{
+            //    var service = ds.Repository<IProductManager>();
+            //    // Получение всех товаров
+            //    var allAdverts = service.GetAllProducts();
+            //    ViewBag.Message = "Это вызов частичного представления из обычного";
+            //    ViewBag.Hell = allAdverts;
+            //    return View(allAdverts);
+            //}
+            return View(allAdverts);
+
         }
 
         public ActionResult About()
