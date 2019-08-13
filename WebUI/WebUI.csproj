@@ -142,6 +142,7 @@
     </Compile>
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windsor\ControllersInstaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -182,7 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Windsor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -210,9 +210,17 @@
       <Project>{5a01a49d-45a8-4142-9436-5fe855b8515e}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.Abstraction\DAL.Abstraction.csproj">
+      <Project>{2d95a37f-5036-429e-a003-8d805bb49220}</Project>
+      <Name>DAL.Abstraction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.EntityFramework\DAL.EntityFramework.csproj">
       <Project>{95388188-5cf8-4427-b391-508034570ed6}</Project>
       <Name>DAL.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\GlobalWindsor\GlobalWindsor.csproj">
+      <Project>{edecea07-52ed-4a43-8765-abc4bf27ac48}</Project>
+      <Name>GlobalWindsor</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Ioc\Ioc.csproj">
       <Project>{a8e6394d-e76a-489a-8b06-2db2e2e8edc6}</Project>

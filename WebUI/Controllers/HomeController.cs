@@ -7,7 +7,8 @@ using BLL.Interfaces;
 using BLL.Services;
 using Castle.MicroKernel.Lifestyle;
 using DAL.EntityFramework;
-
+using GlobalContainer;
+using Castle.Windsor;
 
 namespace WebUI.Controllers
 {
@@ -16,12 +17,12 @@ namespace WebUI.Controllers
 
         public ActionResult Index()
         {
-            //MapperConfigurator.Configure();
             var container = Windsor.Container;
             container.Install();
-           
             Windsor.Initialize();
+
             FactoryRepository ds = new FactoryRepository(container);
+
             using (container.BeginScope())
             {
                 var service = ds.Repository<IProductManager>();

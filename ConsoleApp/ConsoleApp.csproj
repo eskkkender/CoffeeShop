@@ -82,6 +82,10 @@
       <Project>{5A01A49D-45A8-4142-9436-5FE855B8515E}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.Abstraction\DAL.Abstraction.csproj">
+      <Project>{2d95a37f-5036-429e-a003-8d805bb49220}</Project>
+      <Name>DAL.Abstraction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.EntityFramework\DAL.EntityFramework.csproj">
       <Project>{95388188-5cf8-4427-b391-508034570ed6}</Project>
       <Name>DAL.EntityFramework</Name>
