@@ -1,6 +1,7 @@
 ﻿using System;
 using BLL.Interfaces;
 using BLL.Services;
+using Ioc;
 using Castle.MicroKernel.Lifestyle;
 
 namespace ConsoleApp

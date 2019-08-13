@@ -1,7 +1,7 @@
 ﻿using Castle.Windsor;
-using BLL.Services.Installers;
+using Ioc.Installers;
 
-namespace BLL.Services
+namespace Ioc
 {
     public static class Windsor
     {
@@ -11,7 +11,6 @@ namespace BLL.Services
             Container.Install(new DatabasesInstaller());
             Container.Install(new RepositoriesInstaller());
             Container.Install(new ServicesInstaller());
-            //Container.Install(new ControllersInstaller());
         }
     }
 }

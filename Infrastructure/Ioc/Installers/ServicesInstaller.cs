@@ -4,9 +4,9 @@ using Castle.Windsor;
 using BLL.Interfaces;
 using BLL.Services;
 
-namespace BLL.Services.Installers
+namespace Ioc.Installers
 {
-    class ServicesInstaller : IWindsorInstaller
+    public class ServicesInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {

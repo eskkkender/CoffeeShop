@@ -4,7 +4,7 @@ using Castle.Windsor;
 using DAL.EntityFramework;
 using System.Data.Entity;
 
-namespace BLL.Services.Installers
+namespace Ioc.Installers
 {
     public class DatabasesInstaller : IWindsorInstaller
     {

@@ -59,7 +59,6 @@
     <Reference Include="Microsoft.Analytics.Types" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Installers\ControllersInstaller.cs" />
     <Compile Include="Installers\DatabasesInstaller.cs" />
     <Compile Include="Installers\RepositoriesInstaller.cs" />
     <Compile Include="Installers\ServicesInstaller.cs" />
