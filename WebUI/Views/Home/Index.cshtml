@@ -5,7 +5,7 @@
 @foreach (var b in ViewBag.Hell)
 {
     <tr>
-        <td><p><a href="/Home/Add/@b.Id">Купить</a></p></td>
+        @*<td><p><a href="/Home/Add/@b.Id">Купить</a></p></td>*@
         <td><p>@b.Name</p></td>
         <td><p><a href="/Home/Delete/@b.Id">Удалить</a></p></td>
     </tr>

@@ -1,0 +1,13 @@
+﻿@model DTO.ProductDTO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+@using (Html.BeginForm())
+{
+    <dt>Имя</dt>
+    @Html.DisplayFor(model => model.Name)
+    <input type="submit" value="Удалить" />
+}

@@ -26,10 +26,24 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public string Add(DTO.ProductDTO  sd)
+        public ActionResult Add(DTO.ProductDTO  item)
         {
-            Service.AddProduct(sd);
-            return "добавлен";
+            Service.AddProduct(item);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var GetProductById = Service.GetProductId(id);
+            return View(GetProductById);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Service.DeleteProduct(id);
+            return RedirectToAction("Index");
         }
 
         public ActionResult About()

@@ -9,7 +9,7 @@ namespace DAL.EntityFramework
 
         static CoffeeShopDbContext()
         {
-            //Database.SetInitializer<CoffeeShopDbContext>(new DbInitializer());
+            Database.SetInitializer<CoffeeShopDbContext>(new DbInitializer());
         }
     }
     public class DbInitializer : DropCreateDatabaseAlways<CoffeeShopDbContext>
