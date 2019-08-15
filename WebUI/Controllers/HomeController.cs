@@ -15,9 +15,15 @@ namespace WebUI.Controllers
 
         public ActionResult Index()
         {
-            var allAdverts = Service.GetAllProducts();
-            ViewBag.Hell = allAdverts;
-            return View(allAdverts);
+            ViewBag.Hell = Service.GetAllProducts();
+            return View();
+        }
+
+        [HttpGet]
+        public string Add(string name)
+        {
+            Service.AddProduct(new DTO.ProductDTO { Name = name });
+            return "добавлен";
         }
 
         public ActionResult About()
