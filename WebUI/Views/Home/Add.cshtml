@@ -1,0 +1,13 @@
+﻿@model DTO.ProductDTO
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(model => model.Name)
+    <input type="submit" value="Добавить" />
+}
+

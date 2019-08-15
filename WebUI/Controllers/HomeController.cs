@@ -20,9 +20,15 @@ namespace WebUI.Controllers
         }
 
         [HttpGet]
-        public string Add(string name)
+        public ActionResult Add()
         {
-            Service.AddProduct(new DTO.ProductDTO { Name = name });
+            return View();
+        }
+
+        [HttpPost]
+        public string Add(DTO.ProductDTO  sd)
+        {
+            Service.AddProduct(sd);
             return "добавлен";
         }
 
