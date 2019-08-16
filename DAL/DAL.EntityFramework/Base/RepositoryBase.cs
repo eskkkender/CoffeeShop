@@ -50,8 +50,8 @@ namespace DAL.EntityFramework
         }
 
         public void Update(T item)
-        {
-            throw new NotImplementedException();
+        {        
+            Context.Entry(item).State = EntityState.Modified;
         }
     }
 }

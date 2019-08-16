@@ -28,6 +28,13 @@ namespace BLL.Services
             _unitOfWork.SaveChanges();            
         }
 
+        public void EditProduct(ProductDTO product)
+        {
+            var products = Mapper.Map<ProductDTO, Product>(product);
+            _unitOfWork.Repository<IProductRepository>().Update(products);
+            _unitOfWork.SaveChanges();
+        }
+
         public List<ProductDTO> GetAllProducts()
         {
             var product = _unitOfWork.Repository<IProductRepository>().GetAll();
