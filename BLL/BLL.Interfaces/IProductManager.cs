@@ -12,6 +12,11 @@ namespace BLL.Interfaces
         void AddProduct(ProductDTO item);
 
         /// <summary>
+        /// Редактирование товара
+        /// </summary>
+        void EditProduct(ProductDTO item);
+
+        /// <summary>
         /// Удаление товара
         /// </summary>
         /// <param name="item"></param>
@@ -21,5 +26,6 @@ namespace BLL.Interfaces
         /// Возвращает весь товар
         /// </summary>
         List<ProductDTO> GetAllProducts();
+
     }
 }

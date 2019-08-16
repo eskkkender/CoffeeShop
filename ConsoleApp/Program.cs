@@ -37,19 +37,29 @@ namespace ConsoleApp
                 var GetById = service.GetProductId(ID);
                 Console.WriteLine($"Товар по ИД: {GetById.Name}");
 
-                // Удаление по ИД
-                Console.WriteLine($"Удалить");
-                int DeleteId = int.Parse(Console.ReadLine());
-                service.DeleteProduct(DeleteId);
+                //// Удаление по ИД
+                //Console.WriteLine($"Удалить");
+                //int DeleteId = int.Parse(Console.ReadLine());
+                //service.DeleteProduct(DeleteId);
 
-                // Получение всех товаров после удаления
+                //// Получение всех товаров после удаления
+                //var allAdvertss = service.GetAllProducts();
+                //foreach (var advert in allAdvertss)
+                //{
+                //    Console.WriteLine(advert.Name);
+                //}
+                //Console.ReadKey();
+                Console.WriteLine($"Обновление по ИД");
+                string name1 = Console.ReadLine();
+                service.EditProduct(new DTO.ProductDTO { Id = 1, Name = name1 }) ;
                 var allAdvertss = service.GetAllProducts();
                 foreach (var advert in allAdvertss)
                 {
+                    Console.WriteLine(advert.Id);
                     Console.WriteLine(advert.Name);
                 }
                 Console.ReadKey();
-      
+
             }
         }
     }

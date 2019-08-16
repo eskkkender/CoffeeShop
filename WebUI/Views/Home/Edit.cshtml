@@ -1,0 +1,18 @@
+﻿@model DTO.ProductDTO
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<p>Товар @Model.Id</p>
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id)
+    <p>
+        @Html.LabelFor(m => m.Name, "Название товара")
+        <br />
+        @Html.EditorFor(m => m.Name)
+    </p>
+    <p><input type="submit" value="Отправить" /></p>
+}

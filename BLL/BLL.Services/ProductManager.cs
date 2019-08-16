@@ -5,6 +5,7 @@ using DTO;
 using DAL.Abstraction;
 using DAL.Entities;
 using AutoMapper;
+using System;
 
 namespace BLL.Services
 {
@@ -18,6 +19,7 @@ namespace BLL.Services
         public ProductDTO GetProductId(int id)
         {
             var dss = _unitOfWork.Repository<IProductRepository>().Get(id);
+            _unitOfWork.SaveChanges();
             return Mapper.Map<Product, ProductDTO>(dss);
         }
 
@@ -30,9 +32,17 @@ namespace BLL.Services
 
         public void EditProduct(ProductDTO product)
         {
-            var products = Mapper.Map<ProductDTO, Product>(product);
+            var repository = _unitOfWork.Repository<IProductRepository>();
+            var products = repository.Get(product.Id);
+
+
+
+            //var a = Mapper.Map<ProductDTO, Product>(products);
+
+            // var products = Mapper.Map<ProductDTO, Product>(productss);
             _unitOfWork.Repository<IProductRepository>().Update(products);
             _unitOfWork.SaveChanges();
+
         }
 
         public List<ProductDTO> GetAllProducts()

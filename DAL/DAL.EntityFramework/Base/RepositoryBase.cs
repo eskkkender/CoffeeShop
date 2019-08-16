@@ -50,7 +50,7 @@ namespace DAL.EntityFramework
         }
 
         public void Update(T item)
-        {        
+        {
             Context.Entry(item).State = EntityState.Modified;
         }
     }

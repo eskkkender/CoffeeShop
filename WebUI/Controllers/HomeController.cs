@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using BLL.Interfaces;
 
 namespace WebUI.Controllers
@@ -26,7 +27,7 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(DTO.ProductDTO  item)
+        public ActionResult Add(DTO.ProductDTO item)
         {
             Service.AddProduct(item);
             return RedirectToAction("Index");
@@ -43,6 +44,22 @@ namespace WebUI.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Service.DeleteProduct(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var GetProductById = Service.GetProductId(id);
+            return View(GetProductById);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(DTO.ProductDTO item)
+        {
+
+               Service.EditProduct(item);
+          
             return RedirectToAction("Index");
         }
 
