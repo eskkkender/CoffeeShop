@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalWindsor", "Infrastructure\GlobalWindsor\GlobalWindsor.csproj", "{EDECEA07-52ED-4A43-8765-ABC4BF27AC48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapping", "Infrastructure\Mapping\Mapping.csproj", "{418B97D0-4DDD-463F-A48E-5186B5ECA5BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{EDECEA07-52ED-4A43-8765-ABC4BF27AC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDECEA07-52ED-4A43-8765-ABC4BF27AC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDECEA07-52ED-4A43-8765-ABC4BF27AC48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{418B97D0-4DDD-463F-A48E-5186B5ECA5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{418B97D0-4DDD-463F-A48E-5186B5ECA5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{418B97D0-4DDD-463F-A48E-5186B5ECA5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{418B97D0-4DDD-463F-A48E-5186B5ECA5BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +101,7 @@ Global
 		{824FBE7C-C9EA-4023-9317-3F61FCC96C5C} = {ACEA1991-7919-4B0D-A5BC-C9D9CCB7E485}
 		{A8E6394D-E76A-489A-8B06-2DB2E2E8EDC6} = {B3844A0B-1818-4A30-A706-EB9B6402921B}
 		{EDECEA07-52ED-4A43-8765-ABC4BF27AC48} = {B3844A0B-1818-4A30-A706-EB9B6402921B}
+		{418B97D0-4DDD-463F-A48E-5186B5ECA5BC} = {B3844A0B-1818-4A30-A706-EB9B6402921B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C7717C7-56ED-4722-9CF1-E9B451DB5B3E}

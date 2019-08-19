@@ -16,6 +16,11 @@ namespace BLL.Services
         {         
         }
 
+        /// <summary>
+        /// Получить товар по ИД
+        /// </summary>
+        /// <param name="id">ИД товара</param>
+        /// <returns></returns>
         public ProductDTO GetProductId(int id)
         {
             var dss = _unitOfWork.Repository<IProductRepository>().Get(id);
@@ -34,12 +39,7 @@ namespace BLL.Services
         {
             var repository = _unitOfWork.Repository<IProductRepository>();
             var products = repository.Get(product.Id);
-
-
-
-            //var a = Mapper.Map<ProductDTO, Product>(products);
-
-            // var products = Mapper.Map<ProductDTO, Product>(productss);
+            products.Name = product.Name;
             _unitOfWork.Repository<IProductRepository>().Update(products);
             _unitOfWork.SaveChanges();
 

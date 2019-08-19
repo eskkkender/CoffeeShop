@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using BLL.Interfaces;
+using AutoMapper;
 
 namespace WebUI.Controllers
 {
@@ -57,9 +58,7 @@ namespace WebUI.Controllers
         [HttpPost]
         public ActionResult Edit(DTO.ProductDTO item)
         {
-
-               Service.EditProduct(item);
-          
+            Service.EditProduct(item);      
             return RedirectToAction("Index");
         }
 
