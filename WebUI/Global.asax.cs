@@ -6,6 +6,8 @@ using GlobalWindsor;
 using System.Reflection;
 using Ioc.Installers;
 using WebUI.Windsor;
+using System.Web.Http;
+using WebUI.App_Start;
 
 namespace WebUI
 {
@@ -13,6 +15,8 @@ namespace WebUI
     {
         protected void Application_Start()
         {
+
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             MapperConfigurator.Configure();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
