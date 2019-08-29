@@ -8,6 +8,7 @@ using Ioc.Installers;
 using WebUI.Windsor;
 using System.Web.Http;
 using WebUI.App_Start;
+using System.Web.Http.Dispatcher;
 
 namespace WebUI
 {
@@ -23,12 +24,15 @@ namespace WebUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            GlobalConfiguration.Configuration.Services.Replace(
+             typeof(IHttpControllerActivator),
+             new WindsorApiControllerActivator(GlobalContainer.Container));
             // вот тут 
             GlobalContainer.Initialize(new DatabasesInstaller());
             GlobalContainer.Initialize(new RepositoriesInstaller());
             GlobalContainer.Initialize(new ServicesInstaller());
-
             GlobalContainer.Initialize(new ControllersInstaller(Assembly.GetExecutingAssembly()));
+
             var controllerFactory = new WindsorControllerFactory(GlobalContainer.Container.Kernel);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
 

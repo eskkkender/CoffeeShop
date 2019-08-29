@@ -3,6 +3,7 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using System.Reflection;
 using System.Web.Mvc;
+using System.Web.Http;
 
 namespace WebUI.Windsor
 {
@@ -20,6 +21,10 @@ namespace WebUI.Windsor
             container.Register(Classes
                 .FromAssembly(_assembly)
                 .BasedOn<Controller>().LifestyleTransient());
+
+            container.Register(Classes
+                    .FromThisAssembly()
+                    .BasedOn<ApiController>());
         }
     }
 }

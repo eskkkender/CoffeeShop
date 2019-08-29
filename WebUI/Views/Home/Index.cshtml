@@ -11,3 +11,172 @@
     </tr>
 }
 <a href="/Home/Add/">Добавить</a>
+
+<div id="tableBlock"></div>
+<div id="editBlock">
+    <p><b>Редактирование книги</b></p>
+    <table>
+        <tr><td><input type="hidden" id="editId" /></td><td></td></tr>
+        <tr><td><label>Название: </label></td><td><input type="text" id="editName" /></td></tr>
+        <tr><td><label>Автор: </label></td><td><input type="text" id="editAuthor" /></td></tr>
+        <tr><td><label>Год: </label></td><td><input type="number" id="editYear" /></td></tr>
+    </table>
+    <button id="editBook">Сохранить</button>
+</div>
+
+<div id="createBlock">
+    <p><b>Добавление книги</b></p>
+    <table>
+        <tr><td><label>Название: </label></td><td><input type="text" id="addName" /></td></tr>
+    </table>
+    <button id="addBook">Сохранить</button>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        GetAllBooks();
+
+        $("#editBook").click(function (event) {
+            event.preventDefault();
+            EditBook();
+        });
+
+        $("#addBook").click(function (event) {
+            event.preventDefault();
+            AddBook();
+        });
+
+    });
+    // Получение всех книг по ajax-запросу
+    function GetAllBooks() {
+
+        $("#createBlock").css('display', 'block');
+        $("#editBlock").css('display', 'none');
+        $.ajax({
+            url: '/api/Test',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                WriteResponse(data);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+ // Добавление новой книги
+    function AddBook() {
+        // получаем значения для добавляемой книги
+        var book = {
+            Name: $('#addName').val(),
+        };
+
+        $.ajax({
+            url: '/api/Test/PostBook',
+            type: 'POST',
+            data: JSON.stringify(book),
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                GetAllBooks();
+            },
+            error: function () {
+                alert( JSON.stringify(book) );
+            }
+        });
+    }
+ // Удаление книги
+    function DeleteBook(id) {
+
+        $.ajax({
+            url: '/api/Test/' + id,
+            type: 'DELETE',
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                GetAllBooks();
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+    // редактирование книги
+    function EditBook() {
+        var id = $('#editId').val()
+        // получаем новые значения для редактируемой книги
+        var book = {
+            Id: $('#editId').val(),
+            Name: $('#editName').val(),
+            Author: $('#editAuthor').val(),
+            Year: $('#editYear').val()
+        };
+        $.ajax({
+            url: '/api/Test/' + id,
+            type: 'PUT',
+            data: JSON.stringify(book),
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                GetAllBooks();
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+ // вывод полученных данных на экран
+    function WriteResponse(books) {
+        var strResult = "<table><th>ID</th><th>Название</th><th>Автор</th><th>Год издания</th>";
+        $.each(books, function (index, book) {
+            strResult += "<tr><td>" + book.Id + "</td><td> " + book.Name + "</td><td>" +
+            book.Author + "</td><td>" + book.Year +
+            "</td><td><a id='editItem' data-item='" + book.Id + "' onclick='EditItem(this);' >Редактировать</a></td>" +
+            "<td><a id='delItem' data-item='" + book.Id + "' onclick='DeleteItem(this);' >Удалить</a></td></tr>";
+        });
+        strResult += "</table>";
+        $("#tableBlock").html(strResult);
+
+    }
+    // обработчик удаления
+    function DeleteItem(el) {
+        // получаем id удаляемого объекта
+        var id = $(el).attr('data-item');
+        DeleteBook(id);
+    }
+    // обработчик редактирования
+    function EditItem (el) {
+        // получаем id редактируемого объекта
+        var id = $(el).attr('data-item');
+        GetBook(id);
+    }
+    // вывод данных редактируемой книги в поля для редактирования
+    function ShowBook(book) {
+        if (book != null) {
+            $("#createBlock").css('display', 'none');
+            $("#editBlock").css('display', 'block');
+            $("#editId").val(book.Id);
+            $("#editName").val(book.Name);
+            $("#editAuthor").val(book.Author);
+            $("#editYear").val(book.Year);
+        }
+        else {
+            alert("Такая книга не существует");
+        }
+    }
+    // запрос книги на редактирование
+    function GetBook(id) {
+        $.ajax({
+            url: '/api/Test/' + id,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                ShowBook(data);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+    </script>
+}

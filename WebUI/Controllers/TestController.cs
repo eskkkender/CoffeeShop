@@ -22,20 +22,30 @@ namespace WebUI.Controllers
 
         // GET api/<controller>
         public IHttpActionResult Get()
-        {
-            var a = new ProductDTO();
-
-            
+        {          
             var a = Service.GetAllProducts();
-            // return new string[] { "value1", "value2" };
             return Ok(a);
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            var a = Service.GetProductId(id);
+            return Ok(a);
         }
-        //...
+
+        // POST: api/Books
+        [System.Web.Http.HttpPost]
+        public IHttpActionResult PostBook(ProductDTO book)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            Service.AddProduct(book);
+
+            return CreatedAtRoute("DefaultApi", new { id = book.Id }, book);
+        }
+
     }
 }

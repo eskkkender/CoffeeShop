@@ -11,7 +11,6 @@ namespace Ioc.Installers
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(Component.For<IProductManager>().ImplementedBy<ProductManager>());
-
         }
     }
 }
