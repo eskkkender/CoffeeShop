@@ -16,9 +16,9 @@ namespace DAL.EntityFramework
     {
         protected override void Seed(CoffeeShopDbContext db)
         {
-            db.Products.Add(new Product { Name = "Жопадробилка" });
-            db.Products.Add(new Product { Name = "Нескафе" });
-            db.Products.Add(new Product { Name = "Якобс" });
+            db.Products.Add(new Product { Price = 57.00, Name = "Жопадробилка", Description = "gjg" });
+            db.Products.Add(new Product { Price = 123.00, Name = "Нескафе" });
+            db.Products.Add(new Product { Price = 10.00, Name = "Якобс" });
             db.SaveChanges();
         }
     }

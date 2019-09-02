@@ -14,6 +14,11 @@ namespace DAL.Entities
     {
         public long Id { get; set; }
         /// <summary>
+        /// Цена
+        /// </summary>
+        public double Price { get; set; }
+
+        /// <summary>
         /// Наименовние кофе
         /// </summary>
         public string Name { get; set; }

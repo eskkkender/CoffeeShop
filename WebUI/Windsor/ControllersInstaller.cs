@@ -23,8 +23,8 @@ namespace WebUI.Windsor
                 .BasedOn<Controller>().LifestyleTransient());
 
             container.Register(Classes
-                    .FromThisAssembly()
-                    .BasedOn<ApiController>());
+                    .FromAssembly(_assembly)
+                    .BasedOn<ApiController>().LifestyleTransient());
         }
     }
 }
