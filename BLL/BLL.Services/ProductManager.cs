@@ -41,6 +41,7 @@ namespace BLL.Services
             var products = repository.Get(product.Id);
             products.Price = product.Price;
             products.Name = product.Name;
+            products.Description = product.Description;
             _unitOfWork.Repository<IProductRepository>().Update(products);
             _unitOfWork.SaveChanges();
 
