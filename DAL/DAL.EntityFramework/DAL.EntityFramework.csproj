@@ -61,23 +61,6 @@
   <ItemGroup>
     <Compile Include="CoffeeShopDbContext.cs" />
     <Compile Include="FactoryRepository.cs" />
-    <Compile Include="Migrations\201909021444386_InitialCreate.cs" />
-    <Compile Include="Migrations\201909021444386_InitialCreate.Designer.cs">
-      <DependentUpon>201909021444386_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909021448425_Price.cs" />
-    <Compile Include="Migrations\201909021448425_Price.Designer.cs">
-      <DependentUpon>201909021448425_Price.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909021506205_Description.cs" />
-    <Compile Include="Migrations\201909021506205_Description.Designer.cs">
-      <DependentUpon>201909021506205_Description.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909021512212_Price1.cs" />
-    <Compile Include="Migrations\201909021512212_Price1.Designer.cs">
-      <DependentUpon>201909021512212_Price1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Base\RepositoryBase.cs" />
@@ -98,18 +81,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909021444386_InitialCreate.resx">
-      <DependentUpon>201909021444386_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909021448425_Price.resx">
-      <DependentUpon>201909021448425_Price.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909021506205_Description.resx">
-      <DependentUpon>201909021506205_Description.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909021512212_Price1.resx">
-      <DependentUpon>201909021512212_Price1.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

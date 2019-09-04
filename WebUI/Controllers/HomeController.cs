@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.IO;
+using System.Web;
+using System.Web.Mvc;
 using BLL.Interfaces;
 using DTO;
 
@@ -27,11 +30,62 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(ProductDTO item)
+        public ActionResult Add(ProductDTO item, HttpPostedFileBase FileUrl)
         {
-            Service.AddProduct(item);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (FileUrl != null)
+                    {
+                        string path = Path.Combine(Server.MapPath("~/Content/images/"), Path.GetFileName(FileUrl.FileName));
+                        item.FileUrl = "assasa";
+                        Service.AddProduct(item);
+                        FileUrl.SaveAs(path);
+                        ViewBag.FileName = path;
+                    }
+                    ViewBag.FileStatus = "File uploaded successfully.";
+
+                }
+                catch (Exception)
+                {
+                    ViewBag.FileStatus = "Error while file uploading."; ;
+                }
+            }
+            return View("Add");
         }
+
+        [HttpGet]
+        public ActionResult Upload()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Upload(ProductDTO item, HttpPostedFileBase file)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (file != null)
+                    {
+                        string path = Path.Combine(Server.MapPath("~/Content/images/"), Path.GetFileName(file.FileName));                    
+                        file.SaveAs(path);
+                        ViewBag.FileName = path;
+                    }
+                    ViewBag.FileStatus = "File uploaded successfully.";
+               
+                }
+                catch (Exception)
+                {
+                    ViewBag.FileStatus = "Error while file uploading."; ;
+                }
+            }
+            Service.AddProduct(item);
+            return View("Upload");
+        }
+
 
         [HttpGet]
         public ActionResult Delete(int id)

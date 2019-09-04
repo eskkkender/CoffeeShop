@@ -26,6 +26,10 @@ namespace DAL.Entities
         /// Описание кофе
         /// </summary>
         public string Description { get; set; }
+        /// <summary>
+        /// Ссылка на изображение
+        /// </summary>
+        public string FileUrl { get; set; }
    
     }
 }
