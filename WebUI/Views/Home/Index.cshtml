@@ -1,7 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
 @foreach (var b in ViewBag.Hell)
 {
     <tr>
@@ -9,7 +8,7 @@
         <td><p>@b.Name</p></td>
         <td><p>@b.Description</p></td>
         <td><p>Файл</p></td>
-        <td><p>@b.FileUrl</p></td>
+        <img src="@Url.Content("/Content/images/" + @b.FileUrl)" />
         <td><p><a href="/Home/Edit/@b.Id">Редактировать</a></p></td>
         <td><p><a href="/Home/Delete/@b.Id">Удалить</a></p></td>
     </tr>
@@ -34,9 +33,12 @@
         <tr><td><label>Цена: </label></td><td><input type="text" id="addPrice" /></td></tr>
         <tr><td><label>Название: </label></td><td><input type="text" id="addName" /></td></tr>
         <tr><td><label>Описание: </label></td><td><input type="text" id="addDescription" /></td></tr>
+        <tr><td><label>Изображение: </label></td><td><input type="file" id="addImage" /></td></tr>
     </table>
     <button id="addBook">Сохранить</button>
 </div>
+
+
 
 @section scripts
 {
@@ -80,18 +82,22 @@
                 Price: $('#addPrice').val(),
                 Name: $('#addName').val(),
                 Description: $('#addDescription').val(),
+                // FileUrl: $('#addImage')[0].files[,
             };
+               var formData = new FormData();
+            formData.append('file', $('#addImage')[0].files[0]);
 
             $.ajax({
                 url: '/api/Product',
                 type: 'POST',
-                data: JSON.stringify(book),
-                contentType: "application/json;charset=utf-8",
+                data: formData,
+                processData: false,
+                contentType: false,
                 success: function (data) {
                     GetAllBooks();
                 },
-                error: function () {
-                    alert(JSON.stringify(book));
+                error: function (data) {
+                    alert(data);
                 }
             });
         }
@@ -138,7 +144,7 @@
         function WriteResponse(books) {
             var strResult = "<table><th>ID</th><th>Цена</th><th>Название</th>";
             $.each(books, function (index, book) {
-                strResult += "<tr><td>" + book.Id + "</td><td> " + book.Price + "</td><td>" + book.Name +  "</td><td>" + book.Description + "</td><td><a id='editItem' data-item='" + book.Id + "' onclick='EditItem(this);' >Редактировать</a></td>" +
+                strResult += "<tr><td>" + book.Id + "</td><td> " + book.Price + "</td><td>" + book.Name + "</td><td>" + book.Description + "</td><td>" + book.FileUrl + "</td><td><a id='editItem' data-item='" + book.Id + "' onclick='EditItem(this);' >Редактировать</a></td>" +
                     "<td><a id='delItem' data-item='" + book.Id + "' onclick='DeleteItem(this);' >Удалить</a></td></tr>";
             });
             strResult += "</table>";
@@ -187,3 +193,6 @@
         }
     </script>
 }
+
+
+

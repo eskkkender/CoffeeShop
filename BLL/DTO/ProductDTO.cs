@@ -17,6 +17,6 @@
         /// <summary>
         /// Ссылка на изображение
         /// </summary>
-        public string file { get; set; }
+        public string FileUrl { get; set; }
     }
 }

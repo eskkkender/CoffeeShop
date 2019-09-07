@@ -42,9 +42,9 @@ namespace BLL.Services
             products.Price = product.Price;
             products.Name = product.Name;
             products.Description = product.Description;
+            products.FileUrl = product.FileUrl;
             _unitOfWork.Repository<IProductRepository>().Update(products);
             _unitOfWork.SaveChanges();
-
         }
 
         public List<ProductDTO> GetAllProducts()

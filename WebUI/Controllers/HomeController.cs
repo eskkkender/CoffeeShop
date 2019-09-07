@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
@@ -38,9 +39,11 @@ namespace WebUI.Controllers
                 {
                     if (FileUrl != null)
                     {
-                        string path = Path.Combine(Server.MapPath("~/Content/images/"), Path.GetFileName(FileUrl.FileName));
-                        item.FileUrl = "assasa";
+                        string FileName = Path.GetFileName(FileUrl.FileName);
+                        string path = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/Content/images/"), FileName);
+                        item.FileUrl = FileName;
                         Service.AddProduct(item);
+
                         FileUrl.SaveAs(path);
                         ViewBag.FileName = path;
                     }
@@ -52,6 +55,7 @@ namespace WebUI.Controllers
                     ViewBag.FileStatus = "Error while file uploading."; ;
                 }
             }
+
             return View("Add");
         }
 
@@ -109,9 +113,27 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(ProductDTO item)
+        public ActionResult Edit(ProductDTO item, HttpPostedFileBase FileUrl)
         {
-            Service.EditProduct(item);      
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (FileUrl != null)
+                    {
+                        string FileName = Path.GetFileName(FileUrl.FileName);
+                        string path = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/Content/images/"), FileName);
+                        item.FileUrl = FileName;
+                        Service.EditProduct(item);
+                        FileUrl.SaveAs(path);
+                        ViewBag.FileName = path;
+                    }
+                }
+                catch (Exception)
+                {
+                    ViewBag.FileStatus = "Error while file uploading.";
+                }
+            }    
             return RedirectToAction("Index");
         }
 

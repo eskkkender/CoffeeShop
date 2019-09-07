@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.IO;
+using System.Web;
+using System.Web.Http;
 using System.Web.Http.Description;
 using BLL.Interfaces;
 using DTO;
@@ -32,10 +34,27 @@ namespace WebUI.Controllers
         // POST: api/Test
         public IHttpActionResult PostProduct(ProductDTO product)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
+
+            //if (ModelState.IsValid)
+            //{
+   
+            //        if (FileUrl != null)
+            //        {
+            //            string FileName = Path.GetFileName(FileUrl.FileName);
+            //            string path = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/Content/images/"), FileName);
+            //            product.FileUrl = FileName;
+            //            Service.AddProduct(product);
+
+            //            FileUrl.SaveAs(path);
+
+            //        }
+
+            //}
+
             Service.AddProduct(product);
 
             return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
