@@ -1,0 +1,15 @@
+﻿@model DTO.ProductDTO
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Delete</h2>
+@using (Html.BeginForm())
+{
+    <dt>Имя</dt>
+    @Html.DisplayFor(model => model.Price)
+    @Html.DisplayFor(model => model.Name)
+    @Html.DisplayFor(model => model.Description)
+    @Html.DisplayFor(model => model.FileUrl)
+}

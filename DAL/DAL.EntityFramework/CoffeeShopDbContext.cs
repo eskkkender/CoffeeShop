@@ -19,6 +19,7 @@ namespace DAL.EntityFramework
             db.Products.Add(new Product { Price = 57.00, Name = "Жопадробилка", Description = "gjg" });
             db.Products.Add(new Product { Price = 123.00, Name = "Нескафе", Description = "wew" });
             db.Products.Add(new Product { Price = 10.00, Name = "Якобс", Description = "gassajg" });
+            db.Products.Add(new Product { Price = 10.00, Name = "Якобс", Description = "gassajg" });
             db.SaveChanges();
         }
     }

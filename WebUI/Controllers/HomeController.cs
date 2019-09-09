@@ -45,10 +45,7 @@ namespace WebUI.Controllers
                         Service.AddProduct(item);
 
                         FileUrl.SaveAs(path);
-                        ViewBag.FileName = path;
                     }
-                    ViewBag.FileStatus = "File uploaded successfully.";
-
                 }
                 catch (Exception)
                 {
@@ -104,6 +101,15 @@ namespace WebUI.Controllers
             Service.DeleteProduct(id);
             return RedirectToAction("Index");
         }
+
+
+        [HttpGet]
+        public ActionResult Detail(int id)
+        {
+            var GetProductById = Service.GetProductId(id);
+            return View(GetProductById);
+        }
+
 
         [HttpGet]
         public ActionResult Edit(int id)
