@@ -6,14 +6,9 @@
 <h2>Upload</h2>
 
 
-@using (Html.BeginForm("Upload", "Home", FormMethod.Post))
-{
-    <input type="file" name="image" id="image" />
-    <input type="submit" value="Дddddь" />
-}
 
 
-@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@*@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
     <div class="form-horizontal">
@@ -39,7 +34,7 @@
             </div>
         </div>
     </div>
-}
+}*@
 
 
 <div id="tableBlock"></div>
@@ -57,9 +52,9 @@
 <div id="createBlock">
     <p><b>Добавление товара</b></p>
     <table>
-        <tr><td><label>Цена: </label></td><td><input type="text" id="addPrice" /></td></tr>
+        @*<tr><td><label>Цена: </label></td><td><input type="text" id="addPrice" /></td></tr>
         <tr><td><label>Название: </label></td><td><input type="text" id="addName" /></td></tr>
-        <tr><td><label>Описание: </label></td><td><input type="text" id="addDescription" /></td></tr>
+        <tr><td><label>Описание: </label></td><td><input type="text" id="addDescription" /></td></tr>*@
         <tr><td><label>Изображение: </label></td><td><input type="file" id="addImage" /></td></tr>
     </table>
     <button id="addBook">Сохранить</button>
@@ -111,7 +106,7 @@
                 Description: $('#addDescription').val(),
                 // FileUrl: $('#addImage')[0].files[,
             };
-               var formData = new FormData();
+            var formData = new FormData();
             formData.append('file', $('#addImage')[0].files[0]);
 
             $.ajax({

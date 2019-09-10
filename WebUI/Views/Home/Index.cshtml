@@ -27,21 +27,18 @@
 
 <div class="container">
     <div class="row">
-
         @foreach (var b in ViewBag.Hell)
         {
             <div class="col-lg-3 col-md-6 text-center about-block1">               
                 <div class="product-item">
-                    <img src="@Url.Content("/Content/images/" + @b.FileUrl)" class ="item_img" alt=""  height="200">
+                    <img src="@Url.Content("/Content/images/" + @b.FileUrl)" class ="item_img" alt="">
                     <div class="item-info">
                         <h3>@b.Name</h3>
                         <strong class="price">@b.Price (руб.)</strong><br />
                         <a class="btn btn-light btn-xl" href="/Home/Detail/@b.Id">Купить!</a>
                     </div>
                 </div>
-             </div>
+            </div>
         }
-
-
     </div>
 </div>
