@@ -1,4 +1,4 @@
-﻿@model WebUI.Models.FileUploadModel
+﻿@model DTO.ProductDTO
 @{
     ViewBag.Title = "Upload";
 }
@@ -9,32 +9,32 @@
 
 
 @*@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
+    {
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.file, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.file, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
-                @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.file, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.file, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                    @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Upload" class="btn btn-primary" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Upload" class="btn btn-primary" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 text-success">
+                    @ViewBag.FileStatus
+                    @ViewBag.FileName
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10 text-success">
-                @ViewBag.FileStatus
-                @ViewBag.FileName
-            </div>
-        </div>
-    </div>
-}*@
+    }*@
 
 
 <div id="tableBlock"></div>
@@ -55,6 +55,8 @@
         @*<tr><td><label>Цена: </label></td><td><input type="text" id="addPrice" /></td></tr>
         <tr><td><label>Название: </label></td><td><input type="text" id="addName" /></td></tr>
         <tr><td><label>Описание: </label></td><td><input type="text" id="addDescription" /></td></tr>*@
+        @*@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control form-control-lg" } })*@
+        <tr><td><label>Название: </label></td><td><input type="text" id="addName" /></td></tr>
         <tr><td><label>Изображение: </label></td><td><input type="file" id="addImage" /></td></tr>
     </table>
     <button id="addBook">Сохранить</button>
@@ -100,15 +102,15 @@
         // Добавление новой книги
         function AddBook() {
             // получаем значения для добавляемой книги
-            var book = {
-                Price: $('#addPrice').val(),
-                Name: $('#addName').val(),
-                Description: $('#addDescription').val(),
-                // FileUrl: $('#addImage')[0].files[,
-            };
+            //var book = {
+            //    Price: $('#addPrice').val(),
+            //    Name: $('#addName').val(),
+            //    Description: $('#addDescription').val(),
+            //    // FileUrl: $('#addImage')[0].files[,
+            //};
             var formData = new FormData();
+            formData.append('name', $('#addName').val());
             formData.append('file', $('#addImage')[0].files[0]);
-
             $.ajax({
                 url: '/api/Product',
                 type: 'POST',

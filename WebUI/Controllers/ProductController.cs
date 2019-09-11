@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -34,76 +36,76 @@ namespace WebUI.Controllers
             return Ok(a);
         }
 
-        // POST: api/Test
-        public HttpResponseMessage PostProduct()
+        //// POST: api/Test
+        //public HttpResponseMessage PostProduct(ProductDTO product)
+        //{
+
+
+        //    HttpResponseMessage result;
+        //    var httpRequest = HttpContext.Current.Request;
+
+        //    var files = new List<string>();
+        //    product.Price =1212;
+
+        //    Service.AddProduct(product);
+
+
+        //    foreach (string file in httpRequest.Files)
+        //    {
+        //        var postedFile = httpRequest.Files[file];
+        //        var filePath = HttpContext.Current.Server.MapPath("~/Content/images/" + postedFile.FileName);
+        //        postedFile.SaveAs(filePath);
+
+        //        files.Add(filePath);
+        //    }
+
+        //    result = Request.CreateResponse(HttpStatusCode.Created, files);
+        //    return result;
+        //}
+
+        public async Task<HttpResponseMessage> PostProduct()
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return BadRequest(ModelState);
-            //}
-
-            //if (ModelState.IsValid)
-            //{
-
-            //        if (FileUrl != null)
-            //        {
-            //            string FileName = Path.GetFileName(FileUrl.FileName);
-            //            string path = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/Content/images/"), FileName);
-            //            product.FileUrl = FileName;
-            //            Service.AddProduct(product);
-
-            //            FileUrl.SaveAs(path);
-
-            //        }
-
-            //}
-
-            //Service.AddProduct(product);
-
-            //if (HttpContext.Current.Request.Files.AllKeys.Any())
-            //{
-            // // Get the uploaded image from the Files collection
-            // var httpPostedFile = HttpContext.Current.Request.Files["UploadedImage"];
-
-            // if (httpPostedFile != null)
-            // {
-            // // Get the complete file path
-            // String fileSavePath = HttpContext.Current.Server.MapPath("~/Content/images/") + HttpContext.Current.Request.Form["ImageName"];
-
-            // // Save the uploaded file to "UploadedFiles" folder
-            // httpPostedFile.SaveAs(fileSavePath);
-            // }
-            //}
-
-            HttpResponseMessage result;
-            var httpRequest = HttpContext.Current.Request;
-
-            // Check if files are available
-            //if (httpRequest.Files.Count > 0)
-            //{
-            var files = new List<string>();
-
-            // interate the files and save on the server
-
-            foreach (string file in httpRequest.Files)
+            if (!Request.Content.IsMimeMultipartContent())
             {
-                var postedFile = httpRequest.Files[file];
-                var filePath = HttpContext.Current.Server.MapPath("~/Content/images/" + postedFile.FileName);
-                postedFile.SaveAs(filePath);
-
-                files.Add(filePath);
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
             }
 
-            // return result
-            result = Request.CreateResponse(HttpStatusCode.Created, files);
-            //}
-            //else
-            //{
-            // // return BadRequest (no file(s) available)
-            // result = Request.CreateResponse(HttpStatusCode.BadRequest);
-            //}
-            return result;
+            string root = HttpContext.Current.Server.MapPath("~/App_Data");
+            var provider = new MultipartFormDataStreamProvider(root);
+
+            try
+            {
+                await Request.Content.ReadAsMultipartAsync(provider);
+
+                // Show all the key-value pairs.
+                foreach (var key in provider.FormData.AllKeys)
+                {
+                    foreach (var val in provider.FormData.GetValues(key))
+                    {
+                        Trace.WriteLine(string.Format("{0}: {1}", key, val));
+                        
+                    }
+                }
+                var a = provider.FormData.GetValues("name");
+                Trace.WriteLine(a);
+                foreach (var file in provider.FileData)
+                {
+                    var name = file.Headers.ContentDisposition.FileName;
+                    name = name.Trim('"');
+                    //Trace.WriteLine(file.Headers.ContentDisposition.FileName);
+                    Trace.WriteLine(name);
+                    Trace.WriteLine("Server file path: " + file.LocalFileName);
+                    var filePath = Path.Combine(root, name);
+                    File.Move(file.LocalFileName, filePath);
+                }
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (System.Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+            }
         }
+
 
         public IHttpActionResult DeleteProduct(int id)
         {
