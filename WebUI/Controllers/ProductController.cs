@@ -36,31 +36,12 @@ namespace WebUI.Controllers
             return Ok(a);
         }
 
-        //// POST: api/Test
-        //public HttpResponseMessage PostProduct(ProductDTO product)
+        //POST: api/Test
+        //public Task<IHttpActionResult> PostProduct(HttpRequest request)
         //{
 
-
-        //    HttpResponseMessage result;
-        //    var httpRequest = HttpContext.Current.Request;
-
-        //    var files = new List<string>();
-        //    product.Price =1212;
-
-        //    Service.AddProduct(product);
-
-
-        //    foreach (string file in httpRequest.Files)
-        //    {
-        //        var postedFile = httpRequest.Files[file];
-        //        var filePath = HttpContext.Current.Server.MapPath("~/Content/images/" + postedFile.FileName);
-        //        postedFile.SaveAs(filePath);
-
-        //        files.Add(filePath);
-        //    }
-
-        //    result = Request.CreateResponse(HttpStatusCode.Created, files);
-        //    return result;
+        //    Trace.WriteLine(request.ToString());
+        //    return Ok();
         //}
 
         public async Task<HttpResponseMessage> PostProduct()
@@ -72,29 +53,17 @@ namespace WebUI.Controllers
 
             string root = HttpContext.Current.Server.MapPath("~/App_Data");
             var provider = new MultipartFormDataStreamProvider(root);
+            var qw = HttpContext.Current.Request;
+            Trace.WriteLine(qw);
 
             try
             {
                 await Request.Content.ReadAsMultipartAsync(provider);
 
-                // Show all the key-value pairs.
-                foreach (var key in provider.FormData.AllKeys)
-                {
-                    foreach (var val in provider.FormData.GetValues(key))
-                    {
-                        Trace.WriteLine(string.Format("{0}: {1}", key, val));
-                        
-                    }
-                }
-                var a = provider.FormData.GetValues("name");
-                Trace.WriteLine(a);
                 foreach (var file in provider.FileData)
                 {
                     var name = file.Headers.ContentDisposition.FileName;
                     name = name.Trim('"');
-                    //Trace.WriteLine(file.Headers.ContentDisposition.FileName);
-                    Trace.WriteLine(name);
-                    Trace.WriteLine("Server file path: " + file.LocalFileName);
                     var filePath = Path.Combine(root, name);
                     File.Move(file.LocalFileName, filePath);
                 }

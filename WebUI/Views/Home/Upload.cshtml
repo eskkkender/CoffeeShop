@@ -78,11 +78,11 @@
 
             $("#addBook").click(function (event) {
                 event.preventDefault();
-                AddBook();
+                AddProduct();
             });
 
         });
-        // Получение всех книг по ajax-запросу
+
         function GetAllBooks() {
             $("#createBlock").css('display', 'block');
             $("#editBlock").css('display', 'none');
@@ -99,15 +99,8 @@
             });
         }
 
-        // Добавление новой книги
-        function AddBook() {
-            // получаем значения для добавляемой книги
-            //var book = {
-            //    Price: $('#addPrice').val(),
-            //    Name: $('#addName').val(),
-            //    Description: $('#addDescription').val(),
-            //    // FileUrl: $('#addImage')[0].files[,
-            //};
+
+        function AddProduct() {
             var formData = new FormData();
             formData.append('name', $('#addName').val());
             formData.append('file', $('#addImage')[0].files[0]);
