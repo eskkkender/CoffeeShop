@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
@@ -45,6 +46,13 @@ namespace WebUI.Controllers
                         Service.AddProduct(item);
 
                         FileUrl.SaveAs(path);
+
+                        byte[] imageData;
+                        using (var binaryReader = new BinaryReader(FileUrl.InputStream))
+                        {
+                            imageData = binaryReader.ReadBytes(FileUrl.ContentLength);
+                        }
+                        Trace.WriteLine(imageData);
                     }
                 }
                 catch (Exception)
@@ -55,6 +63,8 @@ namespace WebUI.Controllers
 
             return View("Add");
         }
+
+
 
         [HttpGet]
         public ActionResult Upload()

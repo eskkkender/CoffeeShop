@@ -1,4 +1,6 @@
-﻿namespace DTO
+﻿using System.Collections.Generic;
+
+namespace DTO
 {
     public class ProductDTO: BaseDTO
     {
@@ -18,5 +20,7 @@
         /// Ссылка на изображение
         /// </summary>
         public string FileUrl { get; set; }
+
+        public ICollection<ImageDTO> Images { get; set; } = new List<ImageDTO>();
     }
 }

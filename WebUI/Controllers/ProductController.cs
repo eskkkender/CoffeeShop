@@ -37,44 +37,63 @@ namespace WebUI.Controllers
         }
 
         //POST: api/Test
-        //public Task<IHttpActionResult> PostProduct(HttpRequest request)
+        //public Task<IHttpActionResult> PostProduct([FromBody] string value)
         //{
+        //    var a = HttpUtility.HtmlEncode(value);
 
-        //    Trace.WriteLine(request.ToString());
-        //    return Ok();
+        //    Trace.WriteLine(a);
+        //    return
         //}
 
-        public async Task<HttpResponseMessage> PostProduct()
+        //public async Task<HttpResponseMessage> PostProduct()
+        //{
+        //    if (!Request.Content.IsMimeMultipartContent())
+        //    {
+        //        throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+        //    }
+
+        //    string root = HttpContext.Current.Server.MapPath("~/App_Data");
+        //    var provider = new MultipartFormDataStreamProvider(root);
+        //    var qw = HttpContext.Current.Request;
+        //    Trace.WriteLine(qw);
+
+        //    try
+        //    {
+        //        await Request.Content.ReadAsMultipartAsync(provider);
+
+        //        foreach (var file in provider.FileData)
+        //        {
+        //            var name = file.Headers.ContentDisposition.FileName;
+        //            name = name.Trim('"');
+        //            var filePath = Path.Combine(root, name);
+        //            File.Move(file.LocalFileName, filePath);
+        //        }
+        //        return Request.CreateResponse(HttpStatusCode.OK);
+        //    }
+        //    catch (System.Exception e)
+        //    {
+        //        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+        //    }
+        //}
+
+        public IHttpActionResult PostProduct()
         {
-            if (!Request.Content.IsMimeMultipartContent())
-            {
-                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
-            }
 
-            string root = HttpContext.Current.Server.MapPath("~/App_Data");
-            var provider = new MultipartFormDataStreamProvider(root);
-            var qw = HttpContext.Current.Request;
-            Trace.WriteLine(qw);
-
-            try
+            var  httpRequest = HttpContext.Current.Request;
+            string FileName;
+            byte[] ImageData;
+            var file = httpRequest.Files[0];
+         
+            using (var binaryReader = new BinaryReader(file.InputStream))
             {
-                await Request.Content.ReadAsMultipartAsync(provider);
-
-                foreach (var file in provider.FileData)
-                {
-                    var name = file.Headers.ContentDisposition.FileName;
-                    name = name.Trim('"');
-                    var filePath = Path.Combine(root, name);
-                    File.Move(file.LocalFileName, filePath);
-                }
-                return Request.CreateResponse(HttpStatusCode.OK);
-            }
-            catch (System.Exception e)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
-            }
+                FileName = file.FileName;
+                ImageData = binaryReader.ReadBytes(file.ContentLength);
+                System.IO.StreamWriter fileq = new System.IO.StreamWriter("c:\\test.txt");
+                fileq.WriteLine(ImageData);
+                fileq.Close();
+            }                     
+            return Ok();
         }
-
 
         public IHttpActionResult DeleteProduct(int id)
         {
